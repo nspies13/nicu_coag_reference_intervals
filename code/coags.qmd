@@ -1,0 +1,785 @@
+---
+title: "Coag Profiles in Neonates"
+author: "Nick Spies, MD"
+format: 
+  html:
+    fig-width: 8.5
+    fig-height: 8
+editor: visual
+---
+
+## Configure (Skip this)
+
+```{r}
+#| warning: false
+#| echo: false
+
+library(tidyverse)
+library(gt)
+library(gtsummary)
+
+theme_ns <- theme(text = element_text(family = "Helvetica"),
+                  title = element_text(size = 14, margin = margin(0, 0, 8, 0)),
+                  plot.subtitle = element_text(size = 12, face = "italic", hjust = 0),
+                  plot.title = element_text(hjust = 0, face = "bold"),
+                  axis.title = element_text(size = 12, face = "bold", margin = margin(4,4,4,4)),
+                  axis.title.x.bottom = element_text(face = "bold", margin = margin(4,0,0,0)),
+                  axis.title.y.left = element_text(face = "bold", margin = margin(0,4,0,0)),
+                  legend.title = element_text(face = "bold.italic", size = 12),
+                  axis.line = element_line(),
+                  axis.ticks = element_blank(),
+                  panel.grid = element_blank(), 
+                  panel.background = element_blank(),
+                  strip.text = element_text(size = 10, face = "bold.italic"),
+                  strip.background = element_blank())
+theme_set(theme_ns)
+
+
+as.rgb <- function(col = "black", alpha = 1) {
+	if (length(col) > 1 && (length(alpha) == 1 || length(alpha) < length(col))) {        # unclear which alpha to use or only one alpha specified
+		
+		if(length(alpha) < length(col) && length(alpha) > 1)
+			warning("Multiple (but too few) 'alpha' specified! Only use 'alpha[1]' for each color!")
+		return(sapply(col, as.rgb, alpha = alpha[1]))
+	}
+	
+	if (length(col) > 1 && length(col) <= length(alpha)) {                                # process each color separately
+		res <- character()
+		for (i in 1:length(col))
+			res <- c(res, as.rgb(col[i], alpha[i]))
+		return(res)
+	}
+	
+	if ( col %in% colors() )
+		return( rgb(t(col2rgb(col))/255, alpha = alpha) )
+	else {
+		col <- sub("#", "", col)
+		R <- as.numeric(paste("0x", substr(col, 1,2), sep = ""))
+		G <- as.numeric(paste("0x", substr(col, 3,4), sep = ""))
+		B <- as.numeric(paste("0x", substr(col, 5,6), sep = ""))
+		return( rgb(R/255, G/255, B/255, alpha = alpha, maxColorValue = 1) )
+	}     
+  
+}
+
+plot.RWDRI <- function(x, Scale = c("original", "transformed", "zScore"), RIperc = c(0.025, 0.975), Nhist = 60, showCI = FRUE, showPathol = FALSE, scalePathol = TRUE, showBSModels = FALSE, showValue = TRUE,
+		CIprop = 0.95, pointEst = c("fullDataEst", "medianBS"), xlim = NULL, ylim = NULL, xlab = NULL, ylab = NULL, title = NULL, ...) {	
+	
+	stopifnot(class(x) == "RWDRI")
+	stopifnot(!is.null(x$Data))		
+	Scale    <- match.arg(Scale[1], choices = c("original", "transformed", "zScore"))
+	stopifnot(is.numeric(RIperc) & min(RIperc)>=0 & max(RIperc)<=1)
+	stopifnot(is.numeric(CIprop) & length(CIprop)==1 & CIprop>=0 & CIprop<=1)
+	stopifnot(is.numeric(Nhist) & Nhist%%1==0 & Nhist>0)
+	pointEst <- match.arg(pointEst[1], choices = c("fullDataEst", "medianBS"))
+	stopifnot(is.null(xlim) | (is.numeric(xlim) & length(xlim)==2))
+	stopifnot(is.null(ylim) | (is.numeric(ylim) & length(ylim)==2))
+	stopifnot(is.logical(showCI))
+	stopifnot(is.logical(showPathol))
+	stopifnot(is.logical(scalePathol))
+	stopifnot(is.logical(showBSModels))
+	stopifnot(is.logical(showValue))
+	
+	modelFound   <- (!is.na(x$Mu) & !is.na(x$Sigma) & !is.na(x$Lambda) & !is.na(x$Shift))
+	BSPerformed  <- (modelFound & length(x$MuBS) > 0 & length(x$SigmaBS) > 0 & length(x$LambdaBS) > 0 & length(x$ShiftBS) > 0)
+	showBSModels <- ifelse(BSPerformed & Scale=="original", showBSModels, FALSE)
+	
+	# extract binned data
+	Data <- x$Data		
+	
+	# extract model parameters
+	if(modelFound)
+	{
+		lambda <- ifelse(pointEst=="medianBS" & BSPerformed, x$LambdaMed, x$Lambda)
+		mu 	   <- ifelse(pointEst=="medianBS" & BSPerformed, x$MuMed, 	  x$Mu)
+		sigma  <- ifelse(pointEst=="medianBS" & BSPerformed, x$SigmaMed,  x$Sigma)
+		shift  <- ifelse(pointEst=="medianBS" & BSPerformed, x$ShiftMed,  x$Shift)	
+		P	   <- ifelse(pointEst=="medianBS" & BSPerformed, x$PMed,  	  x$P)
+	}
+	
+	# calculate reference intervals
+	RI <- getRI(x = x, RIperc = RIperc, CIprop = CIprop, pointEst = pointEst, Scale = Scale)
+	
+	if (is.null(xlab))	
+		xlab <- "Concentration [Units]"
+	
+	if (is.null(ylab))	
+		ylab <- "Frequency"
+		
+	# transform data to the correct scale
+	if(modelFound & (Scale == "transformed" | Scale == "zScore"))
+	{
+		Data <- suppressWarnings(BoxCox(Data - shift, lambda))				
+		Data <- Data[!is.na(Data) & is.finite(Data)]			
+		
+		if(Scale == "zScore")
+			Data <- (Data - mu) / sigma		
+	}	
+	
+	# determine reasonable xlim
+	if (is.null(xlim))
+	{
+		if (!modelFound)
+		{
+			rangeData <- as.numeric(quantile(x = Data, probs = c(0.005, 0.995), na.rm = TRUE))
+			rangeData <- rangeData + c(-0.02, 0.02)*diff(rangeData)
+			
+		} else if(modelFound & (Scale == "transformed" | Scale == "zScore"))
+		{						
+			rangeData <- as.numeric(quantile(x = Data, probs = c(0.001, 0.999), na.rm = TRUE))
+			
+		} else
+		{				
+			# calculate skewness of distribution
+			skewnessRatio <- diff(getRI(x, RIperc=c(0.025, 0.5, 0.975))$PointEst)
+			skewnessRatio <- min(1, sqrt(skewnessRatio[1]/skewnessRatio[2]))
+			
+			# estimate appropriate concentration range for distribution
+			perc595 <- getRI(x, RIperc=c(0.05, 0.95-0.04*(1-skewnessRatio)))$PointEst	
+			rangeData <- perc595 + c(-1, 1)*1.05*diff(perc595)
+			
+			# determine appropriate min and max of dataset
+			minData <- max(1e-20, quantile(x=Data, probs=0.005, na.rm=TRUE))
+			maxData <- quantile(x=Data, probs=0.995, na.rm=TRUE)
+			
+			# shift range outside of the NP distribution to the right or left when covered by the dataset
+			if(rangeData[1] < minData)
+			{
+				rangeData[2] <- min(rangeData[2]+minData-rangeData[1], maxData)
+				rangeData[1] <- minData			
+			}
+			
+			if(rangeData[2] > maxData)
+			{
+				rangeData[1] <- max(rangeData[1]+maxData-rangeData[2], minData)
+				rangeData[2] <- maxData
+			}			
+		
+			rangeData <- rangeData + c(-0.02, 0.02)*diff(rangeData)		
+			rangeData[2] <- min(max(Data), rangeData[2])
+		}
+		
+		rangePE <- range(RI$PointEst)
+		rangePE <- rangePE + c(-0.06, 0.06)*diff(rangePE)
+		
+		rangeCI	<- range(RI$CILow, RI$CIHigh)
+		rangeCI <- rangeCI + c(-0.03, 0.03)*diff(rangeCI)
+		
+		xlim <- range(rangeData, rangePE, rangeCI, na.rm=TRUE)
+		
+		if(Scale == "original")
+			xlim[1] <- max(xlim[1], 1e-20)		
+	}		
+	
+	if (is.null(title))
+		title <- paste0("Estimated Reference Interval", line = -0.1)		
+	
+	if(is.na(x$roundingBase) | Scale == "transformed" | Scale == "zScore")
+	{
+		# generate histogram of data
+		increment  <- diff(xlim)/Nhist	
+		breaks1    <- seq(from = xlim[1] - Nhist*increment, to = xlim[2] + Nhist*increment, by = increment)		
+		breaks2	   <- breaks1 + 0.5*increment
+		
+		if(Scale == "original")
+		{
+			breaks1    <- breaks1[breaks1 > 1e-20]
+			breaks2    <- breaks2[breaks2 > 1e-20]
+		}		
+		
+		hist1  	   <- hist(Data[Data >= min(breaks1) & Data <= max(breaks1)], breaks = breaks1, plot = FALSE)
+		hist2  	   <- hist(Data[Data >= min(breaks2) & Data <= max(breaks2)], breaks = breaks2, plot = FALSE)	
+		countsData <- c(hist1$counts, hist2$counts)
+		mids 	   <- c(hist1$mids, hist2$mids)	
+		
+		# sort vectors in increasing order
+		sortIndex  <- sort(mids, index.return = TRUE)$ix
+		countsData <- countsData[sortIndex]
+		mids	   <- mids[sortIndex]	
+		
+		# combine data from hist1 and hist2 that histograms overlap
+		hist1$breaks  <- c(mids - 0.25*increment, mids[length(mids)] + 0.25*increment)
+		hist1$counts  <- countsData
+		hist1$density <- countsData/sum(countsData)
+		hist1$mids    <- mids	
+		
+		breakL 	   <- breakLBS <- c(breaks1[1:(length(breaks1)-1)], breaks2[1:(length(breaks2)-1)])
+		breakR 	   <- breakRBS <- c(breaks1[2:length(breaks1)], 	breaks2[2:length(breaks2)])
+		
+	} else
+	{		
+		xlimDiff <- diff(xlim)
+		binSize <- x$roundingBase*max(1, round(xlimDiff/x$roundingBase/Nhist))
+		
+		# adapt xlim	
+		xlim[1] <- max(0.5*x$roundingBase, round(xlim[1]/x$roundingBase)*x$roundingBase - 0.5*x$roundingBase)		
+		xlim[2] <- xlim[1] + ceiling(xlimDiff/binSize)*binSize
+		
+		breaks1 <- seq(from=xlim[1], to=xlim[2], by=binSize)
+		
+		hist1 <- hist(Data[Data >= min(breaks1) & Data <= max(breaks1)], breaks = breaks1, plot = FALSE)
+		
+		sortIndex  <- 1:length(hist1$mids)
+		mids	   <- hist1$mids 
+		countsData <- hist1$counts
+		
+		breakL <- breakLBS <- breaks1[1:(length(breaks1)-1)]
+		breakR <- breakRBS <- breaks1[2:length(breaks1)]			
+	}	
+	
+	# Box Cox transformation of histogram breaks and histogram range
+	if (Scale == "original" & modelFound) {		
+		breakL 	  <- suppressWarnings(BoxCox(breakL-shift, lambda=lambda))		
+		breakR 	  <- suppressWarnings(BoxCox(breakR-shift, lambda=lambda))	
+	}		
+	
+	# calculate curves of BS models
+	if (BSPerformed & showBSModels)	
+	{
+		countsPredBS <- matrix(NA, nrow=length(breakLBS), ncol=length(x$MuBS))
+		
+		for(i in 1:length(x$MuBS))
+		{			
+			breakLBS_i <- suppressWarnings(BoxCox(breakLBS-x$ShiftBS[i], lambda=x$LambdaBS[i]))		
+			breakRBS_i <- suppressWarnings(BoxCox(breakRBS-x$ShiftBS[i], lambda=x$LambdaBS[i]))
+										
+			pCorrBS <- BoxCox(c(max(min(x$Data-x$ShiftBS[i]), 1e-20), min(max(x$Data-x$ShiftBS[i]), 1e20)), lambda=x$LambdaBS[i])				
+			pCorrBS <- pnorm(q=pCorrBS, mean=x$MuBS[i], sd=x$SigmaBS[i])
+			pCorrBS <- 1/(pCorrBS[2]-pCorrBS[1])
+		
+			tempCountsPredBS <- pCorrBS*length(Data)*x$PBS[i]*(pnorm(q = breakRBS_i, mean = x$MuBS[i], sd = x$SigmaBS[i]) - pnorm(q = breakLBS_i, mean = x$MuBS[i], sd = x$SigmaBS[i]))			
+			tempCountsPredBS[tempCountsPredBS < 0] <- 0
+			
+			tempCountsPredBS  <- tempCountsPredBS[sortIndex]	
+			
+			countsPredBS[, i] <- tempCountsPredBS
+		}		
+	}
+	
+	maxPred <- NA 
+	
+	if (modelFound) {			
+				
+		pCorr <- BoxCox(c(max(min(x$Data-shift), 1e-20), min(max(x$Data-shift), 1e20)), lambda=lambda)				
+		pCorr <- pnorm(q=pCorr, mean=mu, sd=sigma)
+		pCorr <- 1/(pCorr[2]-pCorr[1])
+			
+		if(Scale == "zScore")
+			countsPred <- pCorr*length(Data)*P*(pnorm(q = breakR, mean = 0, sd = 1) - pnorm(q = breakL, mean = 0, sd = 1))
+		else
+			countsPred <- pCorr*length(Data)*P*(pnorm(q = breakR, mean = mu, sd = sigma) - pnorm(q = breakL, mean = mu, sd = sigma))			
+		
+		countsPred[countsPred < 0] <- 0
+		
+		countsPred 	<- countsPred[sortIndex]		
+		maxPred 	<- max(countsPred)
+		
+		# calculate difference of counts
+		countsDiff <- countsData - countsPred
+		countsDiff[countsDiff<0] <- 0
+		
+		if (scalePathol) {
+			# calculate weighting of difference
+			weightDiff <- countsDiff/(countsPred+1e-20)
+			weightDiff <- pmin(weightDiff, 1.0)	
+			
+			countsDiff <- countsDiff*weightDiff				
+		}			
+	}
+	
+	if (is.null(ylim)) {
+		ylim <- c(0, 1.03*max(countsData, maxPred, na.rm = TRUE))
+		ylim[1] <- 0.03*ylim[2]
+	}	
+	
+	par(font.lab = 2)
+	plot(hist1, freq = TRUE, border = F, col = "gray75", xaxt = 'n', yaxt = 'n', main = title, xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim, cex.main = 1.3, cex.lab = 1.05, axes = F, bty = 'n', mgp = c(1, 0, 0))
+	
+	axis(1, at = pretty(xlim), mgp = c(1, 0, 0), cex.axis = 0.85, tick = F, gap.axis = 0.05)
+	axis(2, at = pretty(ylim), las = 1, mgp = c(1, 0, 0), tick = F, labels = F)
+	
+	# add curves of BS models
+	if (showBSModels) {
+		for (i in 1:length(x$MuBS)) {
+			
+			lines(x = mids, y = countsPredBS[, i], lwd = 2, col = as.rgb("deepskyblue1", min(0.25, 4/length(x$MuBS))))			
+		}		
+	}
+	
+	# add curve of total distribution
+	#lines(x = mids, y = countsData, lty = 2, lwd = 1.5, col = "black")
+	
+	if (modelFound)	{				
+		
+		# add curve of non-pathological distribution
+		if(!showBSModels)
+			lines(x = mids, y = countsPred, lwd = 2, col = "deepskyblue1")
+		
+		# add curve of pathological distribution
+		if(showPathol & !showBSModels)
+			lines(mids, countsDiff, col = "red4", lwd = 1.5)
+	}
+	
+	box()
+	
+	# add confidence intervals
+	if (modelFound)	{
+		for (i in 1:length(RIperc)) {
+			if (showCI & !is.na(RI$CILow[i]) & !is.na(RI$CIHigh[i]))		
+				rect(RI$CILow[i],  -1e3, RI$CIHigh[i], 1e9, col = as.rgb("deepskyblue", 0.20), border = NA)		
+		}	
+		
+		abline(v = RI$PointEst, lwd = 2, lty = 2, col = "deepskyblue1")	
+			
+		selection <- which(RI$PointEst>par("usr")[1] & RI$PointEst<par("usr")[2])
+		
+		if(showValue & length(selection)>0)
+		{			
+			adjust <- rep(0.5, times = length(RIperc))
+			adjust[RI$Percentile < 0.5] <- 1
+			adjust[RI$Percentile > 0.5] <- 0
+			
+			#mtext(text = signif(RI$PointEst[selection], 3), at = RI$PointEst[selection], col = "deepskyblue1", cex = 1.0, adj = adjust[selection])
+		}			
+	}
+	
+	return(invisible(xlim))
+	
+}
+
+slch_transfusions <- readxl::read_xlsx("~/git/nicu_data/data/SLCH_transfusions_2015-2024.xlsx", na = c("<NA>")) |> mutate(MRN = as.character(`Patient MRN`))
+
+pt_2019 <- readxl::read_xlsx("~/git/nicu_data/data/NCS_NICU_Coag_20192022_PT.xlsx", na = c("<NA>"))
+pt_2022 <- readxl::read_xlsx("~/git/nicu_data/data/NCS_NICU_Coag_20222024_PT.xlsx", na = c("<NA>"))
+ptt <- readxl::read_xlsx("~/git/nicu_data/data/NCS_NICU_Coag_20192024_aPTT.xlsx", na = c("<NA>"))
+
+coag_data_raw <- bind_rows(pt_2019, pt_2022, ptt) |> distinct()
+
+coag_data <- 
+  coag_data_raw |> 
+    mutate(PT = str_match(`Last Lab Results`, "PT: (.*?) sec")[,2],
+           INR = str_match(`Last Lab Results`, "INR: (.*)")[,2],
+           aPTT = str_match(`Last Lab Results`, "aPTT: (.*?) sec")[,2],
+           Fibrinogen = str_match(`Last Lab Results`, "Fibrinogen: (.*?) mg/dL")[,2],
+           gest_age = as.numeric(`Gest Age`),
+           gest_age_term = factor(gest_age >= 37, labels = c("Preterm", "Term")), 
+           gest_age_bin = factor(case_when(gest_age < 28 ~ "Extremely Preterm", 
+                                    gest_age >= 28 & gest_age < 32 ~ "Very Preterm",
+                                    gest_age >= 32 & gest_age < 37 ~ "Preterm",
+                                    gest_age >= 37 ~ "Term"), 
+                                 levels = c("Extremely Preterm", "Very Preterm", "Preterm", "Term"), 
+                                 ordered = T),
+           birth_weight = as.numeric(`Pediatric Birth Wgt`),
+           birth_weight_grams = birth_weight * 28.3495,
+           birth_weight_bin = factor(case_when(
+                                        birth_weight_grams < 1000 ~ "Extremely Low",
+                                        birth_weight_grams < 1500 ~ "Very Low",
+                                        birth_weight_grams >= 1500 & birth_weight_grams < 2500 ~ "Low",
+                                        birth_weight_grams >= 2500 & birth_weight_grams < 4000 ~ "Normal",
+                                        birth_weight_grams >= 4000 ~ "High",
+                                        T ~ NA), 
+                                     levels = c("Extremely Low", "Very Low", "Low", "Normal", "High"), 
+                                     ordered = T))
+
+coags_prior_to_transfusion_joined <- 
+  left_join(coag_data, slch_transfusions) |> 
+    group_by(MRN) |>
+    fill(`Order Date & Time`, .direction = "up") |> 
+    filter(Procedure < `Order Date & Time` | is.na(`Order Date & Time`))
+
+all_coags <- 
+  coags_prior_to_transfusion_joined |> 
+    arrange(Procedure) |>
+    group_by(MRN) |> 
+    fill(c("PT", "aPTT", "INR"), .direction = "downup") |> 
+    mutate(across(c("PT", "aPTT", "INR"), ~as.numeric(.x))) |>
+    distinct()
+
+first_coags <- 
+  coags_prior_to_transfusion_joined |> 
+    arrange(Procedure) |>
+    group_by(MRN) |> 
+    fill(c("PT", "aPTT", "INR"), .direction = "downup") |> 
+    mutate(across(c("PT", "aPTT", "INR"), ~as.numeric(.x))) |>
+    distinct() |> 
+    slice_head(n = 1) |> 
+    ungroup()
+
+```
+
+## Start Here from Anonymized Inputs
+```{r}
+### Load Anonymized Coag Data
+first_coags <- read_delim("../data/first_coags_anonymized.tsv", delim = "\t")
+
+gg_first <- 
+  first_coags |> 
+    select(MRN, PT, INR, aPTT, matches("gest_age|birth_weight")) |> 
+    pivot_longer(c(PT, INR, aPTT), names_to = "Test", values_to = "Result") |> 
+    mutate(Test = factor(Test, levels = c("PT", "INR", "aPTT")),
+           Result = ifelse(Result == 0, NA, Result))
+
+current_ri <- tibble(Test = c("PT", "INR", "aPTT"), lower_limit_ri = c(9.0, 0.8, 25), upper_limit_ri = c(14, 1.2, 45))
+```
+
+## Demographic Summary
+
+```{r}
+
+table_1 <- 
+  tbl_summary(first_coags |> pivot_longer(c(PT, INR, aPTT), names_to = "Test", values_to = "Result") |> drop_na(Result) |> filter(Test %in% c("PT", "aPTT")) |> mutate(Test = ifelse(Test == "PT", "PT/INR", Test)), by = "Test", include = c(gest_age, gest_age_bin, birth_weight_grams, birth_weight_bin), label = c("gest_age" ~ "Gestational Age (weeks)", "gest_age_bin" ~ "Gestational Age Class", "birth_weight_grams" ~ "Birth Weight (g)", "birth_weight_bin" ~ "Birth Weight Class"), missing = "no") |>
+    italicize_levels() |>
+    bold_labels() |> 
+    add_p() |>  
+    bold_p() |> 
+    modify_header(all_stat_cols() ~ "**{level}**<br>*N = {n}*") |>
+    as_gt() |>
+    gt::tab_header(title = md("***Demographic Summary of Neonates Receiving Coagulation Testing***"))
+gtsave(table_1, "../figures/table1_demographic_summary.html")
+gtsave(table_1, "../figures/table1_demographic_summary.docx")
+```
+
+## Distribution of Coagulation Results by Gestational Age
+
+### Rolling Quantiles
+
+```{r fig.width=800}
+
+gg_rolling_quantiles_PT <- 
+  first_coags |> 
+    group_by(gest_age) |> 
+    summarise(`5th %ile` = quantile(PT, probs = c(0.10), na.rm = T),
+              `25th %ile` = quantile(PT, probs = c(0.25), na.rm = T),
+              Median = quantile(PT, probs = c(0.50), na.rm = T),
+              `75th %ile` = quantile(PT, probs = c(0.75), na.rm = T),
+              `95th %ile` = quantile(PT, probs = c(0.90), na.rm = T))  |> 
+    pivot_longer(-"gest_age", names_to = "Quantile", values_to = "Result") |> 
+    mutate(Test = "PT", Quantile = factor(Quantile, levels = c("5th %ile", "25th %ile", "Median", "75th %ile", "95th %ile")))
+
+gg_rolling_quantiles_INR <- 
+  first_coags |> 
+    group_by(gest_age) |> 
+    summarise(`5th %ile` = quantile(INR, probs = c(0.10), na.rm = T),
+              `25th %ile` = quantile(INR, probs = c(0.25), na.rm = T),
+              Median = quantile(INR, probs = c(0.50), na.rm = T),
+              `75th %ile` = quantile(INR, probs = c(0.75), na.rm = T),
+              `95th %ile` = quantile(INR, probs = c(0.90), na.rm = T))  |> 
+    pivot_longer(-"gest_age", names_to = "Quantile", values_to = "Result") |> 
+    mutate(Test = "INR", Quantile = factor(Quantile, levels = c("5th %ile", "25th %ile", "Median", "75th %ile", "95th %ile")))
+
+gg_rolling_quantiles_aPTT <- 
+  first_coags |> 
+    group_by(gest_age) |> 
+    summarise(`5th %ile` = quantile(aPTT, probs = c(0.10), na.rm = T),
+              `25th %ile` = quantile(aPTT, probs = c(0.25), na.rm = T),
+              Median = quantile(aPTT, probs = c(0.50), na.rm = T),
+              `75th %ile` = quantile(aPTT, probs = c(0.75), na.rm = T),
+              `95th %ile` = quantile(aPTT, probs = c(0.90), na.rm = T)) |>
+    pivot_longer(-"gest_age", names_to = "Quantile", values_to = "Result") |>
+    mutate(Test = "aPTT", Quantile = factor(Quantile, levels = c("5th %ile", "25th %ile", "Median", "75th %ile", "95th %ile")))
+
+gg_rolling_input <- bind_rows(gg_rolling_quantiles_PT, gg_rolling_quantiles_INR, gg_rolling_quantiles_aPTT)
+gg_first_coags_long <- first_coags |> pivot_longer(c(PT, INR, aPTT), names_to = "Test", values_to = "Result") |> mutate(Test = factor(Test, levels = c("PT", "INR", "aPTT")))
+
+gg_rolling <- 
+  ggplot() +
+    geom_jitter(data = gg_first_coags_long, aes(x = gest_age, y = Result), alpha = 0.25, width = 0.5) +
+    geom_smooth(data = gg_rolling_input, aes(x = gest_age, y = Result, color = Quantile), span = 1.5, se = F, linewidth = 2) +
+    scale_color_manual(values = c("#5F1215", "#A8815E", "#BEB897", "#A8815E", "#5F1215")) +
+    facet_wrap(~Test, scales = "free_y") +
+    scale_x_continuous(limits = c(24, 40)) + 
+    labs(title = "Rolling Quantiles of Coagulation Test Results by Gestational Age",
+         x = "Gestational Age (weeks)",
+         y = "Result") +
+    theme(legend.position = "bottom")
+
+```
+
+### By Lab
+
+```{r fig.width=800}
+
+gg_rolling_aPTT <- 
+  ggplot() +
+    geom_smooth(data = gg_rolling_quantiles_aPTT, aes(x = gest_age, y = Result, color = Quantile), span = 1.5, se = F, linewidth = 2, alpha = 0.75) +
+    geom_jitter(data = first_coags, aes(x = gest_age, y = aPTT), alpha = 0.4, width = 1, size = 0.5) +
+    scale_color_manual(values = c("#5F1215", "#A5785C", "#C9C7BD", "#A5785C", "#5F1215")) +
+    scale_x_continuous(limits = c(24, 41), breaks = seq(24, 40, by = 4)) +
+    scale_y_continuous(limits = c(20, 150), breaks = seq(20, 140, by = 20)) +
+    labs(title = "aPTT", x = "Gestational Age (weeks)", y = "aPTT (seconds)") +
+    theme(legend.position = "none")
+
+gg_rolling_PT <- 
+  ggplot() +
+    geom_smooth(data = gg_rolling_quantiles_PT, aes(x = gest_age, y = Result, color = Quantile), span = 1.5, se = F, linewidth = 2, alpha = 0.75) +
+    geom_jitter(data = first_coags, aes(x = gest_age, y = PT), alpha = 0.4, width = 1, size = 0.5) +
+    scale_color_manual(values = c("#5F1215", "#A5785C", "#C9C7BD", "#A5785C", "#5F1215")) +
+    scale_x_continuous(limits = c(24, 41), breaks = seq(24, 40, by = 4)) +
+    scale_y_continuous(limits = c(10, 50), breaks = seq(10, 50, by = 10)) +
+    labs(title = "PT", x = "Gestational Age (weeks)", y = "PT (seconds)") +
+    theme(legend.position = "none")
+
+gg_rolling_INR <- 
+  ggplot() +
+    geom_smooth(data = gg_rolling_quantiles_INR, aes(x = gest_age, y = Result, color = Quantile), span = 1.5, se = F, linewidth = 2, alpha = 0.75) +
+    geom_jitter(data = first_coags, aes(x = gest_age, y = INR), alpha = 0.4, width = 1, size = 0.5) +
+    scale_color_manual(values = c("#5F1215", "#A5785C", "#C9C7BD", "#A5785C", "#5F1215")) +
+    scale_x_continuous(limits = c(24, 41), breaks = seq(24, 40, by = 4)) +
+    scale_y_continuous(limits = c(0.7, 5), breaks = seq(0.5, 5, by = 0.5)) +
+    labs(title = "INR", x = "Gestational Age (weeks)", y = "INR (Ratio)") +
+    theme(legend.position = "none")
+
+gg_fig1 <- ggpubr::ggarrange(gg_rolling_PT, gg_rolling_INR, gg_rolling_aPTT, ncol = 3, nrow = 1)
+ggsave("../figures/figure1_rolling_quantiles_gest_age.png", gg_fig1, width = 9, height = 4)
+ggsave("../figures/figure1_rolling_quantiles_gest_age.svg", gg_fig1, width = 9, height = 4, dpi = 600)
+ggsave("../figures/figure1_rolling_quantiles_gest_age.pdf", gg_fig1, width = 9, height = 4)
+
+
+```
+
+### Table
+
+```{r}
+#| warning: false
+
+library(gtsummary)
+library(gt)
+
+supp_table_1 <-
+  first_coags |> 
+    tbl_summary(by = "gest_age_bin", missing = "no", include = c("gest_age_bin", "PT", "INR", "aPTT"), statistic = everything() ~ "{mean}") |> 
+      add_n() |> 
+      add_p() |> 
+      add_ci(pattern = "{stat}<br>[{ci}]") |> 
+      bold_labels() |> 
+      bold_p() |>
+      modify_header(all_stat_cols() ~ "**{level}**<br>*N = {n}*") |> 
+    as_gt()
+gtsave(supp_table_1, "../figures/supp_table1_result_means_by_age_bin.html")
+#gtsave(supp_table_1, "../figures/supp_table1_result_means_by_age_bin.docx")
+```
+
+### Figure
+
+```{r}
+
+library(ggdist)
+
+gg_first_coag_distributions <- 
+  gg_first |> 
+    drop_na(gest_age_bin) |> 
+    ggplot(aes(Result, gest_age_bin, fill = gest_age_bin)) +
+      geom_rect(data = current_ri |> mutate(Test = fct_rev(Test)), aes(xmin = lower_limit_ri, xmax = upper_limit_ri, ymin = 0.5, ymax = 5), fill = "black", color = "grey90", alpha = 0.05, inherit.aes = F) +
+      stat_dotsinterval(aes(slab_fill = gest_age_bin, slab_color = gest_age_bin), adjust = 0.25, trim = F, na.rm = T, smooth = "unbounded", layout = "hex", color = "black", interval_size_domain = c(1, 3), slab_alpha = 0.5, fatten_point = 1.5, shape = 3, stroke = 2, side = "top", stackratio = 0.6, scale = 1, slab_shape = 20, slab_linewidth = 0) +
+      facet_grid(~Test, scales = "free_x") + 
+      scico::scale_fill_scico_d(palette = "bilbao", begin = 0.1, end = 0.85) +
+      scico::scale_color_scico_d(palette = "bilbao", begin = 0.1, end = 0.85) + 
+      scico::scale_color_scico_d(palette = "bilbao", begin = 0.1, end = 0.85, aesthetics = "slab_fill") + 
+      scico::scale_color_scico_d(palette = "bilbao", begin = 0.1, end = 0.85, aesthetics = "slab_color") + 
+      scale_x_log10() + 
+      scale_y_discrete(expand = c(0.1, 0)) +
+      annotation_logticks(sides = "b", scaled = T) +
+      ggtitle("Distribution of Coagulation Assays Across Gestational Ages", subtitle = "First Collection Per Patient, All NICU Admissions (2018 - 2023)") + 
+      theme(legend.position = "none", axis.title.y.left = element_blank())
+ggsave("../figures/figure1_distributions_of_first_coag_assays_by_gestational_age_bin.pdf", gg_first_coag_distributions, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure1_distributions_of_first_coag_assays_by_gestational_age_bin.png", gg_first_coag_distributions, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure1_distributions_of_first_coag_assays_by_gestational_age_bin.svg", gg_first_coag_distributions, width = 8.5, height = 5)
+```
+
+## Calculating Reference Ranges From Real-World Data
+
+```{r}
+#| warning: false
+# 
+
+library(refineR)
+
+nested_data <- gg_first |> group_by(gest_age_term, Test) |> nest() |> drop_na() |> bind_rows(gg_first |> mutate(gest_age_term = "All") |> nest(.by = c(gest_age_term, Test))) |> mutate(gest_age_term = factor(gest_age_term, levels = c("Preterm", "Term", "All")))
+
+nested_data$ri_obj <- map(nested_data$data, ~refineR::findRI(.x[["Result"]], seed = 12345))
+nested_data$ri <- map(nested_data$ri_obj, ~getRI(.x))
+nested_data$lower_limit <- nested_data$ri |> map(2) |> map(1) |> unlist()
+nested_data$upper_limit <- nested_data$ri |> map(2) |> map(2) |> unlist()
+
+saveRDS(nested_data, "../results/reference_interval_object.rds")
+
+```
+
+### Plot RefineR RI
+
+```{r, figures-side, fig.show='hold'}
+
+#| 
+
+library(ggpubr)
+
+nested_data <- readRDS("../results/reference_interval_object.rds")
+
+pdf("../figures/refineR_plots_z-scaled.pdf", width = 12, height = 8)
+par(mfrow = c(3, 3), mai = c(0.25, 0.25, 0.25, 0.1))
+
+  plot(nested_data[1, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[1, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[4, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[4, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[7, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[7, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[2, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[2, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[5, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[5, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[8, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[8, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[3, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[3, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[6, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[6, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+  plot(nested_data[9, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "z", showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[9, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Z-score")
+   
+dev.off()
+
+pdf("../figures/refineR_plots_boxcox.pdf", width = 12, height = 8)
+par(mfrow = c(3, 3), mai = c(0.25, 0.25, 0.25, 0.1))
+
+  plot(nested_data[1, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[1, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[4, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[4, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[7, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[7, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[2, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[2, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[5, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[5, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[8, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[8, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[3, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[3, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[6, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[6, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+  plot(nested_data[9, ] |> pluck("ri_obj", 1), Nhist = 12, showCI = F, Scale = "tr", showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[9, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Box-Cox Transformed Result")
+   
+dev.off()
+
+pdf("../figures/refineR_plots.pdf", width = 12, height = 8)
+par(mfrow = c(3, 3), mai = c(0.25, 0.25, 0.25, 0.1))
+
+  plot(nested_data[1, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[1, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Seconds")
+  plot(nested_data[4, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[4, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Seconds")
+  plot(nested_data[7, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "PT", ylab = paste0(nested_data[7, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Seconds")
+  plot(nested_data[2, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[2, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Ratio")
+  plot(nested_data[5, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[5, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Ratio")
+  plot(nested_data[8, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "INR", ylab = paste0(nested_data[8, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Ratio")
+  plot(nested_data[3, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[3, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Seconds")
+  plot(nested_data[6, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[6, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Seconds")
+  plot(nested_data[9, ] |> pluck("ri_obj", 1), Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "aPTT", ylab = paste0(nested_data[9, ] |> pluck("gest_age_term", 1), " Neonates"), xlab = "Seconds")
+  
+dev.off()
+
+```
+
+### Indirect Reference Interval Figure
+
+```{r}
+
+gg_ri_input <- 
+  nested_data |> 
+    select(Test, gest_age_term, lower_limit, upper_limit) |> 
+    pivot_longer(c("lower_limit", "upper_limit"), names_to = "Limit", values_to = "Value") |> 
+    left_join(current_ri) |> 
+    mutate(times_url = ifelse(Limit == "upper_limit", Value / upper_limit_ri, NA))
+
+scales <- tibble(Test = rep(c("PT", "INR", "aPTT"), each = 2), gest_age_term = "All", Value = c(10, 30, 0.5, 2.5, 20, 80))
+
+gg_ri_comparison <- 
+  ggplot(gg_ri_input, aes(x = Value, y = gest_age_term)) + 
+    geom_point() +
+    geom_text(aes(label = round(Value, digits = 1)), vjust = -1) +
+    geom_text(data = gg_ri_input |> filter(Limit == "upper_limit"), aes(label = paste0(round(times_url, digits = 1), "x")), vjust = 1.5) +
+    geom_segment(data = nested_data, aes(x = lower_limit, xend = upper_limit, y = gest_age_term, yend = gest_age_term)) +
+    geom_rect(data = current_ri, aes(xmin = lower_limit_ri, xmax = upper_limit_ri, ymin = 0.8, ymax = 3.3), fill = "black", alpha = 0.1, inherit.aes = F) +
+    geom_blank(data = scales) +  
+    scale_y_discrete(expand = c(0, 0)) + 
+    facet_wrap(~ fct_rev(Test), scales = "free_x") + 
+    coord_cartesian(clip = "off") + 
+    xlab("Result") + ylab("") + ggtitle("Indirect Reference Intervals for Coagulation Tests", subtitle = "First Collection Per Patient, All NICU Admissions (2018 - 2023)") +
+    theme()
+ggsave("../figures/figure2_reference_interval_comparisons.pdf", gg_ri_comparison, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure2_reference_interval_comparisons.png", gg_ri_comparison, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure2_reference_interval_comparisons.svg", gg_ri_comparison, width = 8.5, height = 5)
+```
+
+## Multivariate Modeling
+
+```{r}
+
+inr_model <- glm(INR ~ gest_age + birth_weight_grams, data = first_coags)
+pt_model <- glm(PT ~ gest_age + birth_weight_grams, data = first_coags)
+aptt_model <- glm(aPTT ~ gest_age + birth_weight_grams, data = first_coags)
+
+gt_regression <-
+  tbl_merge(list(
+    tbl_regression(inr_model) |> bold_p(),
+    tbl_regression(pt_model) |> bold_p(),
+    tbl_regression(aptt_model) |> bold_p()), 
+    tab_spanner = c("***INR***", "***PT***", "***aPTT***")) |> 
+    as_gt() |>
+    tab_header(
+      title = md("Multivariate Modeling of Coagulation Assays"),
+      subtitle = md("First Collection per Patient, All NICU Admissions (2018 - 2023)")
+    )
+gtsave(gt_regression, "../figures/supp_table2_age_weight_regression.html")
+gtsave(gt_regression, "../figures/supp_table2_age_weight_regression.docx")
+```
+
+## Result Differences
+
+```{r}
+
+flag_comparisons <- 
+  gg_first |> 
+      left_join(nested_data |> select(gest_age_term, Test, lower_limit, upper_limit)) |> 
+      left_join(current_ri) |> 
+      select(-gest_age_bin) |> 
+      mutate(current_flag = 
+               case_when(
+                 Result > upper_limit_ri ~ "High", 
+                 T ~ "Normal"), 
+             adjusted_flag = 
+               case_when(
+                 Result > upper_limit ~ "High", 
+                 T ~ "Normal")) |> 
+      mutate(across(matches("flag"), ~factor(., levels = c("Normal", "High"))))
+
+flag_comparisons |> 
+  group_by(Test) |> 
+  count(current_flag, adjusted_flag) |> 
+    mutate(prop = round(n / sum(n), digits = 2)) |> 
+    drop_na()
+
+gg_result_diffs <- 
+   flag_comparisons |> 
+    group_by(gest_age_term, Test) |> 
+    count(current_flag, adjusted_flag) |> 
+    mutate(prop = round(n / sum(n), digits = 2)) |> 
+    drop_na() |> 
+    pivot_longer(matches("flag"), names_to = "group", values_to = "flag") %>% 
+    ggplot(aes(x = prop, y = group, fill = fct_rev(flag))) + 
+      geom_col() +
+      scico::scale_fill_scico_d(palette = "bilbao", begin = 0.1, end = 0.85) + 
+      facet_grid(gest_age_term ~ fct_rev(Test), labeller = label_wrap_gen(width = 10)) + 
+      scale_x_continuous(name = "Proportion", breaks = c(0, 0.25, 0.5, 0.75, 1), labels = c("0", "0.25", "0.5", "0.75", "1")) + 
+      scale_y_discrete(limits = c("adjusted_flag", "current_flag"), labels = c("Indirect", "Current")) + 
+      annotate("text", x = 0.02, y = 1, label = "Normal", hjust = 0, color = "black", fontface = "bold.italic") + 
+      annotate("text", x = 0.98, y = 2, label = "High", hjust = 1, color = "white", fontface = "bold.italic") + 
+      ggtitle("Proportion of Results Flagged as Abnormal", subtitle = "Current vs. Indirect Reference Intervals") +
+      theme(axis.title.y.left = element_blank(), legend.position = "none", strip.text = ggtext::element_markdown()) 
+ggsave("../figures/figure3_proportion_of_flagged_results.pdf", gg_result_diffs, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure3_proportion_of_flagged_results.png", gg_result_diffs, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure3_proportion_of_flagged_results.svg", gg_result_diffs, width = 8.5, height = 5)
+```
+
+## Check Stago vs TOP
+
+```{r}
+
+first_coags |> mutate(preTOPS = Procedure < as.POSIXct("2021-07-01")) |> tbl_summary(by = preTOPS, include = c(PT, INR, aPTT)) |> add_p() |> add_n()
+```
+
+## Population-adjusted INR
+
+```{r}
+
+meanPT <- exp(mean(log(first_coags$PT), na.rm = T)) - 3
+adjusted_inr = first_coags |> mutate(adjINR = PT / meanPT, digits = 1)
+
+adjINR_RI_all <- refineR::findRI(adjusted_inr |> pluck("adjINR"), seed = 12345)
+adjINR_RI_term <- refineR::findRI(adjusted_inr |> filter(gest_age >= 37) |> pluck("adjINR"), seed = 12345)
+adjINR_RI_preterm <- refineR::findRI(adjusted_inr |> filter(gest_age < 37) |> pluck("adjINR"), seed = 12345)
+
+plot(adjINR_RI_all, Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "Adjusted INR", ylab = "All Neonates", xlab = "")
+```

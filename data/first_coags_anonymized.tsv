@@ -1,0 +1,1132 @@
+MRN	PT	INR	aPTT	gest_age	gest_age_term	gest_age_bin	birth_weight_grams	birth_weight_bin
+1	14.1	1.08	NA	22	Preterm	Extremely Preterm	570.108445	Extremely Low
+2	17.5	1.41	NA	36	Preterm	Preterm	3200.09156	Normal
+3	14.2	1.09	35.7	24	Preterm	Extremely Preterm	599.87542	Extremely Low
+4	13.5	1.02	NA	34	Preterm	Preterm	NA	NA
+5	12.8	0.95	31.5	33	Preterm	Preterm	1250.0003287499999	Very Low
+6	13.1	0.98	35.7	39	Term	Term	2929.9208249999997	Normal
+7	17	1.36	NA	26	Preterm	Extremely Preterm	1130.01107	Very Low
+8	13.2	0.99	NA	40	Term	Term	2664.853	Normal
+9	18.2	1.48	70.9	26	Preterm	Extremely Preterm	690.02683	Extremely Low
+10	15.7	1.23	NA	40	Term	Term	3750.07186	Normal
+11	15.4	1.2	34.5	40	Term	Term	3570.0525350000003	Normal
+12	15.6	1.22	35.7	36	Preterm	Preterm	1389.975985	Very Low
+13	19.7	1.64	40.6	39	Term	Term	3299.8818	Normal
+14	17.4	1.4	43	40	Term	Term	2999.9440899999995	Normal
+15	13.9	1.06	30.5	25	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+16	40.6	4.08	91.5	27	Preterm	Extremely Preterm	1160.06154	Very Low
+17	15	1.16	34.6	38	Term	Term	NA	NA
+18	28.9	2.66	84.4	24	Preterm	Extremely Preterm	NA	NA
+19	25.8	2.3	NA	24	Preterm	Extremely Preterm	629.92589	Extremely Low
+20	15.6	1.22	NA	41	Term	Term	3229.8585350000003	Normal
+21	21.9	1.87	71.9	26	Preterm	Extremely Preterm	1090.038275	Very Low
+22	23.2	2.02	NA	26	Preterm	Extremely Preterm	1139.933395	Very Low
+23	24.8	2.19	NA	39	Term	Term	2952.8839199999998	Normal
+24	17	1.29	NA	32	Preterm	Preterm	2129.897935	Low
+25	18	1.41	NA	34	Preterm	Preterm	1879.855345	Low
+26	17.3	1.33	40.5	34	Preterm	Preterm	2199.9211999999998	Low
+27	17.4	1.4	NA	41	Term	Term	3249.98668	Normal
+28	15.8	1.24	31.3	41	Term	Term	3680.89908	Normal
+29	NA	NA	NA	36	Preterm	Preterm	NA	NA
+30	13.1	0.92	NA	32	Preterm	Preterm	919.941275	Extremely Low
+31	20.5	1.72	63.6	35	Preterm	Preterm	2870.1033799999996	Normal
+32	23.2	2.02	NA	31	Preterm	Very Preterm	1829.9602249999998	Low
+33	15.7	1.23	28.6	39	Term	Term	3820.095125	Normal
+34	15.7	1.23	34.5	39	Term	Term	3430.0060049999997	Normal
+35	24.3	2.14	NA	37	Term	Term	2229.97167	Low
+36	22.7	1.91	47	27	Preterm	Extremely Preterm	949.9917449999999	Extremely Low
+37	17.8	1.39	30.4	39	Term	Term	3469.9788	Normal
+38	14.5	1.06	37.1	39	Term	Term	3919.885365	Normal
+39	16.5	1.25	45	26	Preterm	Extremely Preterm	1059.987805	Very Low
+40	19.6	1.57	NA	35	Preterm	Preterm	2334.86482	Low
+41	19.7	1.58	31.9	36	Preterm	Preterm	3959.85816	Normal
+42	28.9	2.63	NA	22	Preterm	Extremely Preterm	449.90656499999994	Extremely Low
+43	15.2	1.13	39.5	27	Preterm	Extremely Preterm	1080.11595	Very Low
+44	20.9	1.71	55.1	30	Preterm	Very Preterm	1820.0379	Low
+45	20.3	1.65	96.9	40	Term	Term	4139.027	High
+46	14.9	1.1	NA	NA	NA	NA	4285.87741	High
+47	17.9	1.4	57.1	39	Term	Term	3369.905065	Normal
+48	26.2	2.31	NA	40	Term	Term	3629.8699799999995	Normal
+49	19.7	1.58	44.9	39	Term	Term	3699.8932449999998	Normal
+50	14.8	1.09	37.9	34	Preterm	Preterm	2939.84315	Normal
+51	20.4	1.66	NA	28	Preterm	Very Preterm	489.87936	Extremely Low
+52	27.3	2.44	NA	37	Term	Term	3299.8818	Normal
+53	21.3	1.76	30	30	Preterm	Very Preterm	2000.0572249999998	Low
+54	19	1.51	28.7	39	Term	Term	2929.9208249999997	Normal
+55	16.2	1.22	43.4	36	Preterm	Preterm	4379.9977499999995	High
+56	17	1.3	NA	37	Term	Term	3159.8352699999996	Normal
+57	NA	NA	42.5	36	Preterm	Preterm	2408.857015	Low
+58	24.3	2.09	50.1	35	Preterm	Preterm	2679.878235	Normal
+59	15.5	1.15	37	38	Term	Term	NA	NA
+60	15.2	1.13	NA	31	Preterm	Very Preterm	1130.01107	Very Low
+61	24.6	2.12	49.5	40	Term	Term	4609.628699999999	High
+62	18	1.41	52.7	28	Preterm	Very Preterm	1219.878985	Very Low
+63	15.3	1.14	31.4	33	Preterm	Preterm	1120.088745	Very Low
+64	15.3	1.14	40.4	37	Term	Term	3229.8585350000003	Normal
+65	22.2	1.86	43	25	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+66	13.4	0.95	40.1	24	Preterm	Extremely Preterm	934.116025	Extremely Low
+67	18.3	1.44	NA	34	Preterm	Preterm	2800.0801149999998	Normal
+68	16.6	1.26	45.2	24	Preterm	Extremely Preterm	1560.072985	Low
+69	13	0.93	38.7	36	Preterm	Preterm	3959.85816	Normal
+70	16.7	1.27	NA	39	Term	Term	2785.0548799999997	Normal
+71	18.7	1.48	49.5	31	Preterm	Very Preterm	1579.9176349999998	Low
+72	19.5	1.56	51	26	Preterm	Extremely Preterm	860.12383	Extremely Low
+73	16.2	1.22	50.9	36	Preterm	Preterm	3060.0450299999998	Normal
+74	19	1.51	47.3	34	Preterm	Preterm	3060.0450299999998	Normal
+75	15.6	1.16	28.3	39	Term	Term	2859.89756	Normal
+76	15.6	1.16	NA	26	Preterm	Extremely Preterm	650.054035	Extremely Low
+77	34.7	3.35	NA	30	Preterm	Very Preterm	1439.871105	Very Low
+78	14.5	1.06	NA	40	Term	Term	3765.097095	Normal
+79	18.2	1.43	NA	27	Preterm	Extremely Preterm	709.8714799999999	Extremely Low
+80	17.9	1.4	33.7	39	Term	Term	3014.9693249999996	Normal
+81	18.1	1.42	NA	29	Preterm	Very Preterm	1120.088745	Very Low
+82	22.1	1.84	NA	24	Preterm	Extremely Preterm	489.87936	Extremely Low
+83	12.8	0.9	39.9	28	Preterm	Very Preterm	1609.968105	Low
+84	14.6	1.06	34.3	36	Preterm	Preterm	2529.9093799999996	Normal
+85	23.7	2.02	NA	23	Preterm	Extremely Preterm	559.902625	Extremely Low
+86	15.4	1.14	36.2	34	Preterm	Preterm	1839.88255	Low
+87	37.8	3.75	44.5	33	Preterm	Preterm	1989.8514049999999	Low
+88	18.6	1.47	NA	24	Preterm	Extremely Preterm	580.03077	Extremely Low
+89	12.9	0.91	31	31	Preterm	Very Preterm	1839.88255	Low
+90	19	1.51	46.7	39	Term	Term	3299.8818	Normal
+91	14.2	1.03	36	41	Term	Term	4120.032835	High
+92	19.9	1.61	NA	39	Term	Term	3219.93621	Normal
+93	16.1	1.21	42.2	36	Preterm	Preterm	3390.03321	Normal
+94	28.9	2.53	39.7	34	Preterm	Preterm	3320.009945	Normal
+95	20	1.59	NA	25	Preterm	Extremely Preterm	974.939305	Extremely Low
+96	18.4	1.43	NA	40	Term	Term	2800.0801149999998	Normal
+97	17.3	1.32	NA	37	Term	Term	5100.07505	High
+98	26.4	2.26	34.5	23	Preterm	Extremely Preterm	750.12777	Extremely Low
+99	16.1	1.21	NA	39	Term	Term	2700.00638	Normal
+100	13.8	0.99	27.7	39	Term	Term	NA	NA
+101	14.6	1.06	38.1	28	Preterm	Very Preterm	929.8635999999999	Extremely Low
+102	17.7	1.36	34.8	37	Term	Term	2209.8435250000002	Low
+103	20.1	1.6	45.6	30	Preterm	Very Preterm	1399.89831	Very Low
+104	17.3	1.32	NA	31	Preterm	Very Preterm	2370.0182	Low
+105	15.2	1.12	36.9	39	Term	Term	NA	NA
+106	16.6	1.25	NA	39	Term	Term	3401.94	Normal
+107	14.4	1.05	42	29	Preterm	Very Preterm	1389.975985	Very Low
+108	14.4	1.05	NA	39	Term	Term	2070.08049	Low
+109	52.5	5.41	74.5	39	Term	Term	3269.83133	Normal
+110	14.2	1.03	NA	39	Term	Term	2899.01987	Normal
+111	16.4	1.23	41	37	Term	Term	3515.0545049999996	Normal
+112	25.7	2.18	97.7	27	Preterm	Extremely Preterm	1169.9838650000002	Very Low
+113	15.5	1.15	42.8	26	Preterm	Extremely Preterm	709.8714799999999	Extremely Low
+114	NA	NA	NA	35	Preterm	Preterm	2550.037525	Normal
+115	19.4	1.53	92.4	22	Preterm	Extremely Preterm	430.061915	Extremely Low
+116	17.4	1.33	37.7	41	Term	Term	3179.9634149999997	Normal
+117	20	1.59	38.1	35	Preterm	Preterm	4089.9823650000003	High
+118	NA	NA	NA	33	Preterm	Preterm	1939.9562850000002	Low
+119	16.1	1.21	36.7	28	Preterm	Very Preterm	940.0694199999999	Extremely Low
+120	23.3	2.01	NA	39	Term	Term	2999.9440899999995	Normal
+121	20.2	1.66	NA	40	Term	Term	3519.87392	Normal
+122	19.4	1.53	NA	37	Term	Term	2189.9988749999998	Low
+123	18.8	1.51	45.2	37	Term	Term	2470.091935	Low
+124	13.6	0.99	42.8	35	Preterm	Preterm	3259.9090049999995	Normal
+125	15	1.13	44.3	35	Preterm	Preterm	2499.85891	Low
+126	15.5	1.18	25.8	40	Term	Term	3039.916885	Normal
+127	28.7	2.63	NA	28	Preterm	Very Preterm	959.9140699999999	Extremely Low
+128	14.2	1.05	30.4	39	Term	Term	3834.836865	Normal
+129	17.4	1.37	36.5	34	Preterm	Preterm	2339.9677300000003	Low
+130	18.9	1.52	NA	22	Preterm	Extremely Preterm	500.08518	Extremely Low
+131	25.1	2.21	35.9	22	Preterm	Extremely Preterm	580.03077	Extremely Low
+132	14.1	1.04	39.3	35	Preterm	Preterm	2099.847465	Low
+133	15.2	1.15	36.9	40	Term	Term	3500.0292699999995	Normal
+134	13.2	0.95	32.2	38	Term	Term	3680.0485949999998	Normal
+135	16.8	1.31	NA	38	Term	Term	2870.1033799999996	Normal
+136	14.3	1.06	37.8	37	Term	Term	3989.90863	Normal
+137	NA	NA	NA	31	Preterm	Very Preterm	NA	NA
+138	11.5	0.8	30.7	37	Term	Term	2679.878235	Normal
+139	29.8	2.77	79	26	Preterm	Extremely Preterm	1010.0926850000001	Very Low
+140	12.4	0.88	38.2	35	Preterm	Preterm	1989.8514049999999	Low
+141	17.3	1.36	56	28	Preterm	Very Preterm	638.9977299999999	Extremely Low
+142	28.8	2.65	NA	25	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+143	51.9	5.73	41	35	Preterm	Preterm	1820.0379	Low
+144	15.3	1.16	33.5	37	Term	Term	2719.85103	Normal
+145	14.8	1.11	36.5	33	Preterm	Preterm	2159.9484049999996	Low
+146	13.7	1	NA	33	Preterm	Preterm	2495.039495	Low
+147	15.5	1.18	41.7	39	Term	Term	3331.06625	Normal
+148	19.1	1.55	53.2	27	Preterm	Extremely Preterm	1149.85572	Very Low
+149	15	1.13	148.6	37	Term	Term	2385.0434349999996	Low
+150	15.1	1.14	39.9	36	Preterm	Preterm	2959.971295	Normal
+151	18.4	1.47	42.6	37	Term	Term	2992.00623	Normal
+152	14.7	1.1	40.2	26	Preterm	Extremely Preterm	819.8675400000001	Extremely Low
+153	12.7	0.91	31.1	37	Term	Term	2269.9444649999996	Low
+154	14.5	1.08	40.2	39	Term	Term	4489.99381	High
+155	13.2	0.95	NA	30	Preterm	Very Preterm	1579.9176349999998	Low
+156	17	1.33	NA	23	Preterm	Extremely Preterm	629.92589	Extremely Low
+157	14.3	1.06	39.4	37	Term	Term	2700.00638	Normal
+158	15.4	1.17	39.2	31	Preterm	Very Preterm	2180.07655	Low
+159	18.2	1.45	NA	35	Preterm	Preterm	2349.890055	Low
+160	18.4	1.47	NA	37	Term	Term	2364.91529	Low
+161	12.1	0.85	NA	37	Term	Term	2195.1017850000003	Low
+162	14.9	1.12	48.9	39	Term	Term	3649.998125	Normal
+163	19	1.53	46.5	39	Term	Term	2859.89756	Normal
+164	18.2	1.45	NA	25	Preterm	Extremely Preterm	580.03077	Extremely Low
+165	13.9	1.02	34	26	Preterm	Extremely Preterm	936.10049	Extremely Low
+166	16	1.23	NA	35	Preterm	Preterm	2129.897935	Low
+167	20	1.64	67.2	26	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+168	17.9	1.42	33.3	24	Preterm	Extremely Preterm	479.95703499999996	Extremely Low
+169	13.3	0.96	32	25	Preterm	Extremely Preterm	680.1045049999999	Extremely Low
+170	14.9	1.12	32.8	39	Term	Term	4099.90469	High
+171	15	1.13	31.8	36	Preterm	Preterm	2110.053285	Low
+172	19.9	1.63	51.3	23	Preterm	Extremely Preterm	540.057975	Extremely Low
+173	44.3	4.65	NA	24	Preterm	Extremely Preterm	779.8947450000001	Extremely Low
+174	19.1	1.55	49.7	23	Preterm	Extremely Preterm	479.95703499999996	Extremely Low
+175	18.2	1.45	32.1	30	Preterm	Very Preterm	1484.94681	Very Low
+176	15.2	1.15	39.9	39	Term	Term	3045.0197949999997	Normal
+177	16	1.23	NA	39	Term	Term	2929.9208249999997	Normal
+178	14.4	1.07	40.8	33	Preterm	Preterm	1769.859285	Low
+179	15.6	1.19	35.4	39	Term	Term	3930.0911849999998	Normal
+180	NA	NA	NA	28	Preterm	Very Preterm	1270.0575999999999	Very Low
+181	15.5	1.18	34.4	39	Term	Term	2999.9440899999995	Normal
+182	13.2	0.95	28.3	38	Term	Term	3035.09747	Normal
+183	17.1	1.34	37.2	39	Term	Term	4757.896585	High
+184	14.5	1.08	41.2	35	Preterm	Preterm	2590.01032	Normal
+185	30	2.79	99.5	32	Preterm	Preterm	1560.072985	Low
+186	15.6	1.19	NA	26	Preterm	Extremely Preterm	709.8714799999999	Extremely Low
+187	12.1	0.85	32	39	Term	Term	4469.865664999999	High
+188	19	1.53	41.5	37	Term	Term	2999.9440899999995	Normal
+189	17.9	1.42	47.6	28	Preterm	Very Preterm	1279.9799249999999	Very Low
+190	27.5	2.49	NA	26	Preterm	Extremely Preterm	889.890805	Extremely Low
+191	17.4	1.37	NA	35	Preterm	Preterm	2089.92514	Low
+192	20.9	1.74	NA	25	Preterm	Extremely Preterm	489.87936	Extremely Low
+193	16.9	1.32	33	38	Term	Term	3599.81951	Normal
+194	14.7	1.1	37.2	37	Term	Term	2150.02608	Low
+195	22.8	1.95	NA	23	Preterm	Extremely Preterm	659.97636	Extremely Low
+196	17.1	1.34	35.9	40	Term	Term	3134.88771	Normal
+197	15.1	1.14	39	37	Term	Term	3379.82739	Normal
+198	18.2	1.45	44	37	Term	Term	2840.05291	Normal
+199	30.6	2.87	NA	25	Preterm	Extremely Preterm	720.0772999999999	Extremely Low
+200	NA	NA	NA	33	Preterm	Preterm	2580.087995	Normal
+201	14.7	1.1	45.3	NA	NA	NA	2865.00047	Normal
+202	54.9	6.16	146.9	38	Term	Term	3304.9847099999997	Normal
+203	26.8	2.41	NA	31	Preterm	Very Preterm	1355.1061	Very Low
+204	21.8	1.84	48.3	26	Preterm	Extremely Preterm	779.8947450000001	Extremely Low
+205	15.2	1.15	42	38	Term	Term	5999.888179999999	High
+206	19.2	1.56	57.2	34	Preterm	Preterm	2480.01426	Low
+207	27.6	2.5	37.8	38	Term	Term	3359.98274	Normal
+208	15.9	1.22	36.9	39	Term	Term	4309.974485	High
+209	16.3	1.26	36.1	34	Preterm	Preterm	2550.037525	Normal
+210	13	0.93	29.1	34	Preterm	Preterm	1465.10216	Very Low
+211	16.5	1.28	37.1	37	Term	Term	3100.017825	Normal
+212	14.7	1.1	NA	39	Term	Term	3399.955535	Normal
+213	14.7	1.1	36.9	26	Preterm	Extremely Preterm	980.0422149999999	Extremely Low
+214	13.9	1.02	NA	39	Term	Term	2502.977355	Normal
+215	28.9	2.66	NA	32	Preterm	Preterm	NA	NA
+216	14.6	1.09	50.7	37	Term	Term	3619.947655	Normal
+217	13.6	0.99	NA	34	Preterm	Preterm	2870.1033799999996	Normal
+218	20.4	1.68	NA	39	Term	Term	3320.009945	Normal
+219	19.8	1.62	38.4	25	Preterm	Extremely Preterm	963.8829999999999	Extremely Low
+220	16.1	1.24	60.7	24	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+221	15.6	1.19	30.5	39	Term	Term	3310.0876200000002	Normal
+222	41.1	4.22	NA	23	Preterm	Extremely Preterm	549.9802999999999	Extremely Low
+223	15.6	1.19	43.4	23	Preterm	Extremely Preterm	NA	NA
+224	14.6	1.09	NA	35	Preterm	Preterm	3039.916885	Normal
+225	34.4	3.34	NA	23	Preterm	Extremely Preterm	NA	NA
+226	14	1.03	46.7	24	Preterm	Extremely Preterm	650.054035	Extremely Low
+227	12.5	0.9	32	36	Preterm	Preterm	2800.0801149999998	Normal
+228	17.5	1.4	39	38	Term	Term	3219.93621	Normal
+229	14.7	1.1	45	39	Term	Term	3231.843	Normal
+230	13.6	1	NA	39	Term	Term	2929.0703399999998	Normal
+231	22.9	2	54	26	Preterm	Extremely Preterm	959.9140699999999	Extremely Low
+232	19.1	1.6	NA	25	Preterm	Extremely Preterm	519.9298299999999	Extremely Low
+233	35	3.4	125	25	Preterm	Extremely Preterm	620.003565	Extremely Low
+234	14.2	1	52	38	Term	Term	2584.9074100000003	Normal
+235	15.3	1.2	29	27	Preterm	Extremely Preterm	1240.00713	Very Low
+236	18.2	1.4	NA	31	Preterm	Very Preterm	1920.111635	Low
+237	13.3	1	NA	40	Term	Term	3174.8605049999996	Normal
+238	14.3	1	36	39	Term	Term	3379.82739	Normal
+239	13.8	1	NA	33	Preterm	Preterm	2125.0785199999996	Low
+240	18.6	1.5	38	34	Preterm	Preterm	1879.855345	Low
+241	16.4	1.3	30	39	Term	Term	4089.9823650000003	High
+242	15.8	1.2	41	37	Term	Term	3509.951595	Normal
+243	15.2	1.2	52	35	Preterm	Preterm	3214.8333000000002	Normal
+244	15.8	1.2	36	35	Preterm	Preterm	2290.07261	Low
+245	28.2	2.6	47	35	Preterm	Preterm	2279.86679	Low
+246	14.9	1.1	29	33	Preterm	Preterm	2544.9346149999997	Normal
+247	35	3.4	41	38	Term	Term	2660.0335849999997	Normal
+248	18.6	1.5	50	35	Preterm	Preterm	2764.926735	Normal
+249	NA	NA	76	39	Term	Term	3139.99062	Normal
+250	23.6	2	NA	24	Preterm	Extremely Preterm	530.1356499999999	Extremely Low
+251	16.1	1.2	42	35	Preterm	Preterm	1759.93696	Low
+252	24.2	2	48	34	Preterm	Preterm	2080.0028150000003	Low
+253	15.6	1.1	35	36	Preterm	Preterm	3084.99259	Normal
+254	13	0.9	31	41	Term	Term	3589.897185	Normal
+255	14.5	1	39	37	Term	Term	3769.9165099999996	Normal
+256	15	1.1	40	35	Preterm	Preterm	2283.83572	Low
+257	15.8	1.2	48	35	Preterm	Preterm	2688.9500749999997	Normal
+258	22.2	1.8	57	25	Preterm	Extremely Preterm	809.945215	Extremely Low
+259	18.2	1.4	35	39	Term	Term	3179.9634149999997	Normal
+260	12.8	0.9	28	38	Term	Term	3202.92651	Normal
+261	18.3	1.4	46	39	Term	Term	3649.998125	Normal
+262	15	1.1	33	24	Preterm	Extremely Preterm	699.949155	Extremely Low
+263	12.4	0.9	NA	38	Term	Term	2400.0686699999997	Low
+264	13.1	1	29	36	Preterm	Preterm	2402.053135	Low
+265	NA	NA	NA	38	Term	Term	2789.8742949999996	Normal
+266	15	1.1	38	36	Preterm	Preterm	2389.86285	Low
+267	16.6	1.2	31	35	Preterm	Preterm	2150.02608	Low
+268	12.2	0.9	36	37	Term	Term	2599.932645	Normal
+269	36	3.3	133	35	Preterm	Preterm	2609.85497	Normal
+270	18.5	1.4	43	24	Preterm	Extremely Preterm	729.9996249999999	Extremely Low
+271	15.5	1.2	NA	40	Term	Term	3538.0175999999997	Normal
+272	37.8	3.5	62	31	Preterm	Very Preterm	1659.8632249999998	Low
+273	16.6	1.3	33	37	Term	Term	2664.853	Normal
+274	16	1.2	NA	33	Preterm	Preterm	2360.095875	Low
+275	17.7	1.4	NA	24	Preterm	Extremely Preterm	667.0637350000001	Extremely Low
+276	14.1	1	35	36	Preterm	Preterm	2749.9015	Normal
+277	18.1	1.4	40	40	Term	Term	3253.95561	Normal
+278	19.7	1.6	46	28	Preterm	Very Preterm	640.1317099999999	Extremely Low
+279	19.9	1.6	34	37	Term	Term	2808.0179749999998	Normal
+280	17.8	1.4	48	29	Preterm	Very Preterm	690.02683	Extremely Low
+281	36.8	3.4	NA	23	Preterm	Extremely Preterm	570.108445	Extremely Low
+282	22.1	1.8	44	41	Term	Term	4199.978425	High
+283	18.6	1.5	41	38	Term	Term	3100.017825	Normal
+284	NA	NA	NA	24	Preterm	Extremely Preterm	735.102535	Extremely Low
+285	14.7	1.1	46	24	Preterm	Extremely Preterm	790.100565	Extremely Low
+286	12.7	0.9	30	39	Term	Term	3720.02139	Normal
+287	23.5	2	NA	24	Preterm	Extremely Preterm	750.12777	Extremely Low
+288	28.3	2.5	NA	38	Term	Term	2660.0335849999997	Normal
+289	21.9	1.8	39	39	Term	Term	3365.08565	Normal
+290	20.5	1.6	NA	37	Term	Term	3699.8932449999998	Normal
+291	19.7	1.6	NA	26	Preterm	Extremely Preterm	1029.9373349999998	Very Low
+292	17.8	1.4	59	34	Preterm	Preterm	2539.831705	Normal
+293	14.2	1	NA	26	Preterm	Extremely Preterm	999.8868650000001	Extremely Low
+294	17.5	1.4	38	37	Term	Term	2878.04124	Normal
+295	14.3	1	37	39	Term	Term	2730.05685	Normal
+296	16.3	1.2	29	37	Term	Term	3139.99062	Normal
+297	15.8	1.2	NA	36	Preterm	Preterm	2629.983115	Normal
+298	13.5	1	35	37	Term	Term	3210.013885	Normal
+299	28.3	2.5	NA	37	Term	Term	2070.08049	Low
+300	13	0.9	32	33	Preterm	Preterm	2159.9484049999996	Low
+301	17.5	1.4	45	28	Preterm	Very Preterm	1169.9838650000002	Very Low
+302	19.9	1.6	NA	40	Term	Term	3599.81951	Normal
+303	14.5	1.1	28	40	Term	Term	3280.03715	Normal
+304	16	1.2	32	37	Term	Term	2599.932645	Normal
+305	15.2	1.1	34	39	Term	Term	3344.957505	Normal
+306	14.4	1.1	27	30	Preterm	Very Preterm	1679.99137	Low
+307	17.2	1.3	40	28	Preterm	Very Preterm	720.0772999999999	Extremely Low
+308	46.5	4.6	118	35	Preterm	Preterm	2550.037525	Normal
+309	25.3	2.1	47	37	Term	Term	3420.0836799999997	Normal
+310	19.7	1.6	39	37	Term	Term	2481.998725	Low
+311	14.3	1	NA	39	Term	Term	3350.060415	Normal
+312	12.2	0.9	32	35	Preterm	Preterm	1719.964165	Low
+313	17.5	1.4	NA	37	Term	Term	2009.97955	Low
+314	32.6	2.9	NA	38	Term	Term	2889.94803	Normal
+315	15.1	1.1	78	38	Term	Term	3486.9885	Normal
+316	14.6	1.1	27	25	Preterm	Extremely Preterm	699.949155	Extremely Low
+317	16.7	1.3	NA	39	Term	Term	3210.013885	Normal
+318	24.3	2	NA	39	Term	Term	3979.9863049999994	Normal
+319	15.2	1.1	45	37	Term	Term	2499.85891	Low
+320	13.6	1	31	35	Preterm	Preterm	2764.926735	Normal
+321	20.6	1.7	48	27	Preterm	Extremely Preterm	1329.8750449999998	Very Low
+322	20.8	1.7	44	38	Term	Term	2675.0588199999997	Normal
+323	16.9	1.3	34	38	Term	Term	4880.08293	High
+324	17	1.3	33	39	Term	Term	3713.7844999999998	Normal
+325	19.3	1.5	36	37	Term	Term	2779.95197	Normal
+326	41	3.9	NA	34	Preterm	Preterm	NA	NA
+327	22.5	1.8	90	37	Term	Term	3269.83133	Normal
+328	14.8	1.1	NA	39	Term	Term	4852.016925	High
+329	14.1	1	NA	38	Term	Term	3098.883845	Normal
+330	24.4	2	37	39	Term	Term	2491.92105	Low
+331	15.8	1.2	27	39	Term	Term	3649.998125	Normal
+332	13.9	1	35	37	Term	Term	2810.00244	Normal
+333	15.7	1.2	NA	26	Preterm	Extremely Preterm	1050.06548	Very Low
+334	17	1.3	41	35	Preterm	Preterm	2800.0801149999998	Normal
+335	56.6	5.8	127	37	Term	Term	2070.08049	Low
+336	14.4	1.1	23	38	Term	Term	2760.10732	Normal
+337	14.9	1.1	35	37	Term	Term	3009.866415	Normal
+338	14.1	1	28	37	Term	Term	2834.95	Normal
+339	17.3	1.3	NA	28	Preterm	Very Preterm	1410.10413	Very Low
+340	12.2	0.9	28	34	Preterm	Preterm	2535.01229	Normal
+341	18.1	1.4	32	39	Term	Term	3615.978725	Normal
+342	12.9	0.9	NA	30	Preterm	Very Preterm	1600.04578	Low
+343	18.9	1.5	NA	39	Term	Term	3219.93621	Normal
+344	15.1	1.1	31	39	Term	Term	3248.8527	Normal
+345	14.7	1.1	40	37	Term	Term	3119.862475	Normal
+346	24.3	2	NA	37	Term	Term	3570.0525350000003	Normal
+347	19.8	1.6	NA	26	Preterm	Extremely Preterm	1010.0926850000001	Very Low
+348	15.5	1.2	38	32	Preterm	Preterm	1410.10413	Very Low
+349	15.5	1.2	38	39	Term	Term	3710.099065	Normal
+350	22.5	1.8	43	38	Term	Term	3029.9945599999996	Normal
+351	13.4	1	38	33	Preterm	Preterm	1869.9330199999997	Low
+352	18.6	1.5	38	37	Term	Term	2669.95591	Normal
+353	13.1	1	29	39	Term	Term	3439.92833	Normal
+354	16.3	1.2	35	38	Term	Term	3209.1634	Normal
+355	14.6	1.1	NA	39	Term	Term	3600.3865	Normal
+356	13	0.9	NA	25	Preterm	Extremely Preterm	769.9724199999999	Extremely Low
+357	18.3	1.4	69	40	Term	Term	3405.0584449999997	Normal
+358	16.7	1.3	37	38	Term	Term	3259.9090049999995	Normal
+359	15.5	1.2	NA	40	Term	Term	3959.85816	Normal
+360	13.3	1	33	30	Preterm	Very Preterm	1469.921575	Very Low
+361	20	1.6	37	39	Term	Term	3149.912945	Normal
+362	13.8	1	31	39	Term	Term	3809.8893049999997	Normal
+363	20.3	1.6	52	36	Preterm	Preterm	3399.955535	Normal
+364	17	1.3	NA	26	Preterm	Extremely Preterm	680.1045049999999	Extremely Low
+365	13.1	1	33	37	Term	Term	3269.83133	Normal
+366	14	1	34	33	Preterm	Preterm	1359.925515	Very Low
+367	13.6	1	NA	26	Preterm	Extremely Preterm	999.8868650000001	Extremely Low
+368	29.8	2.6	61	23	Preterm	Extremely Preterm	690.02683	Extremely Low
+369	36.5	3.4	104	31	Preterm	Very Preterm	1590.1234550000001	Low
+370	58	6	124	38	Term	Term	2110.053285	Low
+371	15.5	1.2	40	37	Term	Term	2620.06079	Normal
+372	23.7	2	NA	37	Term	Term	2080.0028150000003	Low
+373	34.4	3.1	38	39	Term	Term	3119.862475	Normal
+374	23.8	2	71	36	Preterm	Preterm	3149.912945	Normal
+375	22.9	1.9	50	28	Preterm	Very Preterm	650.054035	Extremely Low
+376	13.3	1	23	39	Term	Term	3170.0410899999997	Normal
+377	14.8	1.1	NA	38	Term	Term	2929.9208249999997	Normal
+378	17.4	1.4	66	24	Preterm	Extremely Preterm	449.90656499999994	Extremely Low
+379	14.3	1.1	28	27	Preterm	Extremely Preterm	1249.929455	Very Low
+380	29	2.5	122	26	Preterm	Extremely Preterm	800.02289	Extremely Low
+381	13.2	1	30	39	Term	Term	3200.09156	Normal
+382	25.3	2.1	46	37	Term	Term	2895.05094	Normal
+383	13.6	1	48	39	Term	Term	3359.98274	Normal
+384	17.3	1.3	33	39	Term	Term	3075.070265	Normal
+385	25.2	2.1	71	23	Preterm	Extremely Preterm	500.08518	Extremely Low
+386	16.6	1.3	42	39	Term	Term	3519.87392	Normal
+387	17.7	1.4	NA	32	Preterm	Preterm	1839.88255	Low
+388	24.9	2.1	57	32	Preterm	Preterm	1296.989625	Very Low
+389	15.5	1.2	60	40	Term	Term	2937.8586849999997	Normal
+390	17.8	1.4	42	28	Preterm	Very Preterm	1829.9602249999998	Low
+391	17.6	1.4	NA	36	Preterm	Preterm	2700.00638	Normal
+392	30.4	2.7	41	40	Term	Term	3269.83133	Normal
+393	24.1	2	45	36	Preterm	Preterm	2459.886115	Low
+394	27.4	2.4	46	39	Term	Term	3649.998125	Normal
+395	17.5	1.4	45	38	Term	Term	3134.88771	Normal
+396	12.7	0.9	28	39	Term	Term	3229.8585350000003	Normal
+397	14	1	39	35	Preterm	Preterm	2700.00638	Normal
+398	12.6	0.9	NA	36	Preterm	Preterm	3060.0450299999998	Normal
+399	19.9	1.6	55	28	Preterm	Very Preterm	1300.10807	Very Low
+400	18.2	1.4	32	35	Preterm	Preterm	2519.987055	Normal
+401	12.8	0.9	29	34	Preterm	Preterm	2495.039495	Low
+402	15.7	1.2	41	35	Preterm	Preterm	2159.9484049999996	Low
+403	21	1.7	NA	23	Preterm	Extremely Preterm	500.08518	Extremely Low
+404	21.2	1.7	48	37	Term	Term	2339.9677300000003	Low
+405	15.8	1.2	37	37	Term	Term	3090.0955	Normal
+406	16	1.2	32	38	Term	Term	2569.882175	Normal
+407	19.8	1.6	52	24	Preterm	Extremely Preterm	709.8714799999999	Extremely Low
+408	13.8	1	31	39	Term	Term	4399.8423999999995	High
+409	19	1.5	47	38	Term	Term	2779.95197	Normal
+410	34.2	3.2	48	34	Preterm	Preterm	2199.9211999999998	Low
+411	17.9	1.4	43	30	Preterm	Very Preterm	1860.010695	Low
+412	28.7	2.6	NA	37	Term	Term	3464.87589	Normal
+413	14.4	1.1	34	36	Preterm	Preterm	2840.05291	Normal
+414	16.7	1.3	NA	36	Preterm	Preterm	2559.9598499999997	Normal
+415	19.1	1.5	41	23	Preterm	Extremely Preterm	709.8714799999999	Extremely Low
+416	28.8	2.6	NA	37	Term	Term	3399.955535	Normal
+417	44	4.4	53	31	Preterm	Very Preterm	1490.04972	Very Low
+418	24.4	2.1	86	22	Preterm	Extremely Preterm	515.110415	Extremely Low
+419	19.1	1.5	40	31	Preterm	Very Preterm	599.87542	Extremely Low
+420	15.8	1.2	40	39	Term	Term	3320.009945	Normal
+421	16.1	1.2	NA	38	Term	Term	3479.901125	Normal
+422	20.7	1.7	45	37	Term	Term	2844.872325	Normal
+423	14.1	1	33	37	Term	Term	2470.091935	Low
+424	13.7	1	47	25	Preterm	Extremely Preterm	699.949155	Extremely Low
+425	14.1	1	48	37	Term	Term	2580.087995	Normal
+426	12.1	0.8	32	39	Term	Term	3229.8585350000003	Normal
+427	24.6	2.1	92	29	Preterm	Very Preterm	1399.89831	Very Low
+428	14.6	1.1	40	37	Term	Term	3009.866415	Normal
+429	14.3	1.1	34	32	Preterm	Preterm	1135.1139799999999	Very Low
+430	16.3	1.2	49	39	Term	Term	3146.7945	Normal
+431	17.9	1.4	38	39	Term	Term	3069.967355	Normal
+432	24.6	2.1	NA	26	Preterm	Extremely Preterm	729.9996249999999	Extremely Low
+433	12.8	0.9	36	27	Preterm	Extremely Preterm	455.009475	Extremely Low
+434	13.4	1	NA	34	Preterm	Preterm	2069.5135	Low
+435	18.6	1.5	71	35	Preterm	Preterm	2499.85891	Low
+436	15	1.1	33	37	Term	Term	3179.9634149999997	Normal
+437	14.5	1.1	38	34	Preterm	Preterm	2140.1037549999996	Low
+438	21.8	1.8	NA	39	Term	Term	3570.0525350000003	Normal
+439	17.6	1.4	54	24	Preterm	Extremely Preterm	629.92589	Extremely Low
+440	15	1.1	34	25	Preterm	Extremely Preterm	800.02289	Extremely Low
+441	16.5	1.3	36	35	Preterm	Preterm	1649.9409	Low
+442	17.4	1.4	NA	36	Preterm	Preterm	3930.0911849999998	Normal
+443	18.6	1.5	37	38	Term	Term	2309.91726	Low
+444	13.7	1	NA	34	Preterm	Preterm	3229.8585350000003	Normal
+445	32.1	3	60	23	Preterm	Extremely Preterm	555.0832099999999	Extremely Low
+446	17.1	1.3	35	25	Preterm	Extremely Preterm	800.02289	Extremely Low
+447	18.8	1.5	NA	32	Preterm	Preterm	1630.09625	Low
+448	15.1	1.1	NA	40	Term	Term	3416.965235	Normal
+449	14.7	1.1	36	29	Preterm	Very Preterm	1674.88846	Low
+450	15.1	1.1	NA	37	Term	Term	3599.81951	Normal
+451	12.7	0.9	32	36	Preterm	Preterm	2719.85103	Normal
+452	16.6	1.3	34	22	Preterm	Extremely Preterm	604.97833	Extremely Low
+453	28.3	2.5	69	34	Preterm	Preterm	2904.973265	Normal
+454	12	0.8	NA	32	Preterm	Preterm	1319.95272	Very Low
+455	19.8	1.6	44	35	Preterm	Preterm	3139.99062	Normal
+456	16.6	1.3	45	30	Preterm	Very Preterm	970.1198899999999	Extremely Low
+457	16.3	1.2	52	37	Term	Term	2690.084055	Normal
+458	30.6	2.8	NA	23	Preterm	Extremely Preterm	559.902625	Extremely Low
+459	17.7	1.4	NA	39	Term	Term	3225.03912	Normal
+460	14.9	1.1	36	29	Preterm	Very Preterm	949.9917449999999	Extremely Low
+461	17.6	1.4	36	30	Preterm	Very Preterm	1399.89831	Very Low
+462	15.1	1.1	39	22	Preterm	Extremely Preterm	610.00016043	Extremely Low
+463	17.1	1.3	36	29	Preterm	Very Preterm	1399.89831	Very Low
+464	15.9	1.2	NA	39	Term	Term	3689.9709199999998	Normal
+465	14.8	1.1	NA	27	Preterm	Extremely Preterm	1219.878985	Very Low
+466	13.4	1	29	36	Preterm	Preterm	2599.932645	Normal
+467	12.9	0.9	29	40	Term	Term	3405.90893	Normal
+468	17.4	1.4	48	35	Preterm	Preterm	2119.97561	Low
+469	26.3	2.3	30	34	Preterm	Preterm	2370.868685	Low
+470	16	1.2	35	29	Preterm	Very Preterm	1059.987805	Very Low
+471	34.4	3.2	61	32	Preterm	Preterm	2150.02608	Low
+472	15.9	1.2	NA	39	Term	Term	3530.0797399999997	Normal
+473	15.5	1.2	39	38	Term	Term	3320.009945	Normal
+474	14.3	1.1	30	35	Preterm	Preterm	2559.9598499999997	Normal
+475	13.9	1	NA	38	Term	Term	2510.06473	Normal
+476	13.4	1.1	30	38	Term	Term	3090.0955	Normal
+477	12.9	0.9	32	38	Term	Term	2569.882175	Normal
+478	14	1	31	24	Preterm	Extremely Preterm	659.97636	Extremely Low
+479	17.5	1.4	42	39	Term	Term	3337.019645	Normal
+480	NA	NA	NA	39	Term	Term	3879.9125700000004	Normal
+481	16.2	1.2	36	24	Preterm	Extremely Preterm	589.953095	Extremely Low
+482	16.3	1.2	NA	24	Preterm	Extremely Preterm	750.12777	Extremely Low
+483	13.3	1	58	34	Preterm	Preterm	2840.05291	Normal
+484	12.5	0.9	35	39	Term	Term	3405.0584449999997	Normal
+485	14.2	1	32	39	Term	Term	3280.03715	Normal
+486	17.3	1.4	34	38	Term	Term	3109.94015	Normal
+487	14.3	1.1	34	37	Term	Term	3179.9634149999997	Normal
+488	17	1.3	38	39	Term	Term	3500.0292699999995	Normal
+489	17.5	1.4	35	38	Term	Term	2351.024035	Low
+490	15.3	1.2	NA	30	Preterm	Very Preterm	1469.921575	Very Low
+491	18.4	1.5	61	26	Preterm	Extremely Preterm	919.941275	Extremely Low
+492	30.5	2.8	96	33	Preterm	Preterm	2364.064805	Low
+493	23.5	2	77	34	Preterm	Preterm	3203.4935	Normal
+494	13.7	1	40	28	Preterm	Very Preterm	1340.0808650000001	Very Low
+495	16.6	1.3	36	39	Term	Term	3299.8818	Normal
+496	18.2	1.4	NA	39	Term	Term	2849.975235	Normal
+497	20.6	1.7	NA	23	Preterm	Extremely Preterm	610.08124	Extremely Low
+498	13.8	1	33	39	Term	Term	3644.8952149999996	Normal
+499	13	0.9	34	29	Preterm	Very Preterm	1469.921575	Very Low
+500	13.1	0.9	37	29	Preterm	Very Preterm	1319.95272	Very Low
+501	13.8	1	35	35	Preterm	Preterm	3054.94212	Normal
+502	32.8	3.1	NA	32	Preterm	Preterm	1410.10413	Very Low
+503	12.7	0.9	30	39	Term	Term	3930.0911849999998	Normal
+504	24.5	2.1	NA	22	Preterm	Extremely Preterm	669.898685	Extremely Low
+505	45.9	4.7	115	31	Preterm	Very Preterm	2229.97167	Low
+506	16.6	1.3	NA	23	Preterm	Extremely Preterm	559.902625	Extremely Low
+507	13.9	1	20	39	Term	Term	3259.9090049999995	Normal
+508	16.9	1.3	34	37	Term	Term	2434.9385549999997	Low
+509	52.2	5.5	95	28	Preterm	Very Preterm	819.8675400000001	Extremely Low
+510	14.1	1	27	35	Preterm	Preterm	3039.916885	Normal
+511	15.3	1.2	37	38	Term	Term	3130.0682949999996	Normal
+512	15.5	1.2	34	37	Term	Term	2929.9208249999997	Normal
+513	17.9	1.4	37	29	Preterm	Very Preterm	610.08124	Extremely Low
+514	15.4	1.2	34	35	Preterm	Preterm	3045.0008008349996	Normal
+515	14.8	1.1	32	39	Term	Term	2669.95591	Normal
+516	16.8	1.3	NA	34	Preterm	Preterm	2499.85891	Low
+517	16.4	1.3	31	41	Term	Term	3830.01745	Normal
+518	19.1	1.5	NA	31	Preterm	Very Preterm	1700.1195149999999	Low
+519	16.7	1.3	NA	31	Preterm	Very Preterm	790.100565	Extremely Low
+520	20.4	1.6	52	24	Preterm	Extremely Preterm	629.92589	Extremely Low
+521	13	1	40	27	Preterm	Extremely Preterm	1200.0343349999998	Very Low
+522	10.5	0.8	NA	37	Term	Term	2535.01229	Normal
+523	30.6	2.4	47	28	Preterm	Very Preterm	1160.06154	Very Low
+524	14.2	1.1	38	30	Preterm	Very Preterm	1609.968105	Low
+525	12.2	1	29	24	Preterm	Extremely Preterm	665.07927	Extremely Low
+526	31.8	2.5	57	25	Preterm	Extremely Preterm	870.046155	Extremely Low
+527	21.4	1.7	48	36	Preterm	Preterm	3172.0255549999997	Normal
+528	18	1.4	50	37	Term	Term	3540.002065	Normal
+529	16.4	1.3	39	30	Preterm	Very Preterm	729.9996249999999	Extremely Low
+530	12.8	1	39	32	Preterm	Preterm	2180.07655	Low
+531	15.1	1.2	33	40	Term	Term	3430.0060049999997	Normal
+532	20.2	1.6	39	32	Preterm	Preterm	2360.095875	Low
+533	12.3	1	34	25	Preterm	Extremely Preterm	959.9140699999999	Extremely Low
+534	23	1.8	81	26	Preterm	Extremely Preterm	940.0694199999999	Extremely Low
+535	15.6	1.2	28	40	Term	Term	3909.9630399999996	Normal
+536	11.2	0.9	32	37	Term	Term	3259.9090049999995	Normal
+537	22.1	1.8	47	24	Preterm	Extremely Preterm	739.92195	Extremely Low
+538	22.9	1.8	NA	24	Preterm	Extremely Preterm	629.92589	Extremely Low
+539	16.6	1.3	NA	29	Preterm	Very Preterm	1369.84784	Very Low
+540	17.2	1.4	NA	37	Term	Term	2608.154	Normal
+541	10.1	0.8	NA	33	Preterm	Preterm	1850.0883700000002	Low
+542	11.7	0.9	39	34	Preterm	Preterm	1209.95666	Very Low
+543	21.3	1.7	40	35	Preterm	Preterm	1420.026455	Very Low
+544	12.1	1	33	37	Term	Term	2244.996905	Low
+545	24.6	2	89	35	Preterm	Preterm	2829.8470899999998	Normal
+546	20	1.6	70	28	Preterm	Very Preterm	1160.06154	Very Low
+547	15.8	1.3	45	36	Preterm	Preterm	2789.8742949999996	Normal
+548	11.8	0.9	NA	38	Term	Term	3900.0407149999996	Normal
+549	11.7	0.9	30	32	Preterm	Preterm	1643.987505	Low
+550	17.3	1.4	NA	37	Term	Term	3720.02139	Normal
+551	20.6	1.6	69	23	Preterm	Extremely Preterm	729.9996249999999	Extremely Low
+552	13.1	1	40	37	Term	Term	2719.85103	Normal
+553	24.8	2	NA	34	Preterm	Preterm	2089.92514	Low
+554	14.5	1.2	NA	27	Preterm	Extremely Preterm	629.92589	Extremely Low
+555	15.3	1.2	37	36	Preterm	Preterm	2569.882175	Normal
+556	16	1.3	38	39	Term	Term	3159.8352699999996	Normal
+557	29.2	2.3	NA	38	Term	Term	3489.82345	Normal
+558	15	1.2	31	40	Term	Term	2919.9984999999997	Normal
+559	16.1	1.3	63	23	Preterm	Extremely Preterm	659.97636	Extremely Low
+560	14.8	1.2	NA	41	Term	Term	NA	NA
+561	13	1	33	37	Term	Term	2664.853	Normal
+562	12.7	1	NA	27	Preterm	Extremely Preterm	1300.10807	Very Low
+563	15.6	1.2	40	39	Term	Term	3147.077995	Normal
+564	13.2	1.1	NA	34	Preterm	Preterm	2510.06473	Normal
+565	19.1	1.5	44	36	Preterm	Preterm	3049.8392099999996	Normal
+566	14	1.1	36	39	Term	Term	4059.931895	High
+567	23.2	1.8	109	39	Term	Term	3710.099065	Normal
+568	13.4	1.1	40	27	Preterm	Extremely Preterm	720.0772999999998	Extremely Low
+569	14.5	1.2	39	38	Term	Term	3170.0410899999997	Normal
+570	22.6	1.8	NA	25	Preterm	Extremely Preterm	669.898685	Extremely Low
+571	15.4	1.2	37	38	Term	Term	3075.070265	Normal
+572	18.6	1.5	40	32	Preterm	Preterm	1450.0769249999998	Very Low
+573	15.9	1.3	35	31	Preterm	Very Preterm	1435.0516899999998	Very Low
+574	12.2	1	36	37	Term	Term	3649.998125	Normal
+575	15.1	1.2	58	35	Preterm	Preterm	2919.9984999999997	Normal
+576	16.2	1.3	56	27	Preterm	Extremely Preterm	995.06745	Extremely Low
+577	24.8	2	68	31	Preterm	Very Preterm	NA	NA
+578	18.3	1.5	47	39	Term	Term	3460.056475	Normal
+579	22.3	1.8	NA	32	Preterm	Preterm	3430.0060049999997	Normal
+580	18.9	1.5	NA	35	Preterm	Preterm	3530.0797399999997	Normal
+581	27.4	2.2	NA	38	Term	Term	2140.1037549999996	Low
+582	12.6	1	29	40	Term	Term	3744.9689499999995	Normal
+583	13	1	31	41	Term	Term	3809.8893049999997	Normal
+584	19.6	1.6	39	39	Term	Term	3540.002065	Normal
+585	12.9	1	NA	32	Preterm	Preterm	1640.018575	Low
+586	23.5	1.9	76	25	Preterm	Extremely Preterm	889.890805	Extremely Low
+587	12.5	1	NA	40	Term	Term	3458.9224950000003	Normal
+588	13.7	1.1	41	25	Preterm	Extremely Preterm	959.9140699999999	Extremely Low
+589	11.6	0.9	38	29	Preterm	Very Preterm	1010.0926850000001	Very Low
+590	11.8	0.9	NA	38	Term	Term	3139.99062	Normal
+591	35	2.8	33	28	Preterm	Very Preterm	1230.084805	Very Low
+592	19.7	1.6	49	27	Preterm	Extremely Preterm	894.993715	Extremely Low
+593	29.7	2.4	47	40	Term	Term	3720.02139	Normal
+594	12.5	1	35	39	Term	Term	3375.007975	Normal
+595	11.7	0.9	37	37	Term	Term	2637.0704899999996	Normal
+596	12.5	1	33	36	Preterm	Preterm	2309.91726	Low
+597	11.3	0.9	32	38	Term	Term	3489.82345	Normal
+598	15.1	1.2	NA	39	Term	Term	3359.98274	Normal
+599	12.4	1	46	26	Preterm	Extremely Preterm	819.8675400000001	Extremely Low
+600	12.3	1	38	38	Term	Term	2250.099815	Low
+601	40.5	3.2	NA	22	Preterm	Extremely Preterm	570.108445	Extremely Low
+602	11.6	0.9	39	32	Preterm	Preterm	1655.0438100000001	Low
+603	16.7	1.3	49	38	Term	Term	4080.0600399999994	High
+604	12.2	1	38	33	Preterm	Preterm	1455.0003826650002	Very Low
+605	14.5	1.2	40	38	Term	Term	2360.095875	Low
+606	49.8	3.9	47	32	Preterm	Preterm	1190.1120099999998	Very Low
+607	19.3	1.5	57	35	Preterm	Preterm	2519.987055	Normal
+608	40.3	3.2	50	25	Preterm	Extremely Preterm	830.0002182899999	Extremely Low
+609	15.1	1.2	42	26	Preterm	Extremely Preterm	690.02683	Extremely Low
+610	12.2	1	NA	38	Term	Term	3471.963265	Normal
+611	22.9	1.8	39	28	Preterm	Very Preterm	1350.00319	Very Low
+612	23.3	1.8	55	32	Preterm	Preterm	1569.99531	Low
+613	12.5	1	30	39	Term	Term	3710.099065	Normal
+614	12.2	1	25	33	Preterm	Preterm	2779.95197	Normal
+615	15.6	1.2	NA	34	Preterm	Preterm	2070.0005444099997	Low
+616	39.2	3.1	118	30	Preterm	Very Preterm	1325.05563	Very Low
+617	16.5	1.3	39	32	Preterm	Preterm	3049.8392099999996	Normal
+618	21.9	1.7	164	37	Term	Term	2910.076175	Normal
+619	20.4	1.6	58	34	Preterm	Preterm	2129.897935	Low
+620	20.2	1.6	66	38	Term	Term	3164.93818	Normal
+621	16.4	1.3	NA	38	Term	Term	2700.00638	Normal
+622	21.2	1.7	46	39	Term	Term	3488.9729649999995	Normal
+623	12.4	0.99	33	39	Term	Term	3900.0407149999996	Normal
+624	20.3	1.6	65	26	Preterm	Extremely Preterm	925.0441850000001	Extremely Low
+625	15.5	1.2	NA	27	Preterm	Extremely Preterm	1179.90619	Very Low
+626	11.1	0.9	21	38	Term	Term	2829.8470899999998	Normal
+627	11	0.9	32	33	Preterm	Preterm	2165.051315	Low
+628	13	1	64	36	Preterm	Preterm	2739.979175	Normal
+629	16.5	1.3	42	34	Preterm	Preterm	2419.91332	Low
+630	15	1.2	37	34	Preterm	Preterm	2089.92514	Low
+631	16.6	1.3	53	37	Term	Term	2049.952345	Low
+632	17.4	1.4	NA	39	Term	Term	3995.0115399999995	Normal
+633	21.2	1.7	37	39	Term	Term	3022.0566999999996	Normal
+634	11.2	0.9	NA	39	Term	Term	3259.9090049999995	Normal
+635	12.4	1	44	36	Preterm	Preterm	3689.9709199999998	Normal
+636	17.8	1.4	34	39	Term	Term	3149.912945	Normal
+637	16.4	1.3	NA	23	Preterm	Extremely Preterm	650.054035	Extremely Low
+638	14.1	1.2	78	31	Preterm	Very Preterm	1769.859285	Low
+639	NA	NA	33	42	Term	Term	2739.979175	Normal
+640	11.6	0.9	NA	33	Preterm	Preterm	2939.84315	Normal
+641	12.1	1	32	41	Term	Term	3879.9125700000004	Normal
+642	18.1	1.4	48	37	Term	Term	2299.9949349999997	Low
+643	21.1	1.7	54	37	Term	Term	2669.95591	Normal
+644	24.1	1.9	NA	41	Term	Term	5019.8459649999995	High
+645	22	1.8	NA	25	Preterm	Extremely Preterm	690.02683	Extremely Low
+646	18.1	1.4	NA	29	Preterm	Very Preterm	659.97636	Extremely Low
+647	12	1	34	36	Preterm	Preterm	2645.0083499999996	Normal
+648	10.5	0.8	NA	38	Term	Term	2470.091935	Low
+649	22.4	1.8	85	23	Preterm	Extremely Preterm	650.054035	Extremely Low
+650	15.6	1.2	69	23	Preterm	Extremely Preterm	580.03077	Extremely Low
+651	12.6	1	70	37	Term	Term	2080.0028150000003	Low
+652	16.2	1.3	45	39	Term	Term	3820.095125	Normal
+653	22.9	1.8	72	38	Term	Term	2980.09944	Normal
+654	16.1	1.3	63	24	Preterm	Extremely Preterm	669.898685	Extremely Low
+655	13.7	1.1	39	30	Preterm	Very Preterm	1679.99137	Low
+656	39.5	3.1	NA	39	Term	Term	3299.8818	Normal
+657	10.2	0.8	34	35	Preterm	Preterm	2840.05291	Normal
+658	20.2	1.6	NA	40	Term	Term	3469.9788	Normal
+659	14.3	1.1	39	36	Preterm	Preterm	2404.888085	Low
+660	20.7	1.6	NA	35	Preterm	Preterm	2849.975235	Normal
+661	15.3	1.2	NA	27	Preterm	Extremely Preterm	1190.1120099999998	Very Low
+662	22.7	1.8	65	37	Term	Term	2939.84315	Normal
+663	33.8	2.7	55	39	Term	Term	3359.98274	Normal
+664	19.1	1.5	NA	24	Preterm	Extremely Preterm	860.12383	Extremely Low
+665	32	2.5	NA	36	Preterm	Preterm	2760.10732	Normal
+666	19.3	1.5	54	34	Preterm	Preterm	1670.069045	Low
+667	13.3	1.1	48	34	Preterm	Preterm	1420.026455	Very Low
+668	12.5	1	39	39	Term	Term	3689.9709199999998	Normal
+669	12	1	NA	37	Term	Term	3035.09747	Normal
+670	18.6	1.5	47	37	Term	Term	2609.85497	Normal
+671	57.6	4.5	86	37	Term	Term	2810.00244	Normal
+672	13.7	1.1	NA	35	Preterm	Preterm	3629.8699799999995	Normal
+673	23	1.8	NA	39	Term	Term	3640.0758	Normal
+674	12.7	1	42	37	Term	Term	2929.9208249999997	Normal
+675	14.3	1.1	39	41	Term	Term	4619.83452	High
+676	15.9	1.3	62	27	Preterm	Extremely Preterm	779.8947450000001	Extremely Low
+677	27.9	2.2	50	36	Preterm	Preterm	2529.9093799999996	Normal
+678	36.7	2.9	49	32	Preterm	Preterm	2030.107695	Low
+679	17.4	1.4	NA	39	Term	Term	3830.01745	Normal
+680	13.4	1.1	NA	37	Term	Term	2908.6587	Normal
+681	17	1.4	NA	30	Preterm	Very Preterm	1120.088745	Very Low
+682	11.2	0.9	34	39	Term	Term	3959.85816	Normal
+683	14.9	1.2	30	34	Preterm	Preterm	3354.87983	Normal
+684	22.6	1.8	NA	36	Preterm	Preterm	4279.924015	High
+685	14.2	1.1	NA	39	Term	Term	3100.017825	Normal
+686	10.3	0.9	NA	37	Term	Term	2810.00244	Normal
+687	16.6	1.3	NA	39	Term	Term	4664.9102250000005	High
+688	16.3	1.3	93	39	Term	Term	3519.87392	Normal
+689	25.9	2.1	NA	23	Preterm	Extremely Preterm	680.0001788400001	Extremely Low
+690	24.2	1.9	NA	23	Preterm	Extremely Preterm	699.949155	Extremely Low
+691	10.8	0.9	46	27	Preterm	Extremely Preterm	849.91801	Extremely Low
+692	21.7	1.7	77	37	Term	Term	2389.86285	Low
+693	11	1	30	40	Term	Term	3970.0639799999994	Normal
+694	38.2	3	92	36	Preterm	Preterm	1334.977955	Very Low
+695	18.2	1.4	NA	39	Term	Term	3359.98274	Normal
+696	14.8	1.2	49	40	Term	Term	3809.8893049999997	Normal
+697	13.9	1.2	NA	37	Term	Term	2971.0276	Normal
+698	11.6	1	35	38	Term	Term	2580.00067854	Normal
+699	20.9	1.8	NA	35	Preterm	Preterm	2349.890055	Low
+700	13.7	1.2	NA	29	Preterm	Very Preterm	1399.89831	Very Low
+701	14.8	1.3	50	37	Term	Term	3120.00082056	Normal
+702	11.9	1	44	39	Term	Term	2319.8395849999997	Low
+703	11.2	1	34	32	Preterm	Preterm	2070.08049	Low
+704	12	1	NA	30	Preterm	Very Preterm	1839.88255	Low
+705	23.2	2	61	37	Term	Term	2296.0260049999997	Low
+706	17.3	1.5	45	34	Preterm	Preterm	2300.0006049	Low
+707	20	1.7	60	23	Preterm	Extremely Preterm	610.08124	Extremely Low
+708	15	1.3	40	30	Preterm	Very Preterm	1165.000306395	Very Low
+709	15.5	1.3	52	37	Term	Term	2800.0801149999998	Normal
+710	22.3	1.9	176	28	Preterm	Very Preterm	1300.10807	Very Low
+711	28.6	2.4	NA	23	Preterm	Extremely Preterm	659.97636	Extremely Low
+712	23.2	2	NA	23	Preterm	Extremely Preterm	680.1045049999999	Extremely Low
+713	12.7	1.1	32	37	Term	Term	3649.998125	Normal
+714	51.2	4.3	NA	23	Preterm	Extremely Preterm	599.87542	Extremely Low
+715	11.7	1	32	37	Term	Term	3159.8352699999996	Normal
+716	17.7	1.5	57	30	Preterm	Very Preterm	1569.99531	Low
+717	18.2	1.6	143	32	Preterm	Preterm	2309.91726	Low
+718	22	1.9	NA	30	Preterm	Very Preterm	860.00022618	Extremely Low
+719	10	0.9	26	39	Term	Term	3660.0009625800003	Normal
+720	24	2	52	39	Term	Term	3430.00090209	Normal
+721	17.8	1.5	43	37	Term	Term	3110.00081793	Normal
+722	13.6	1.2	NA	38	Term	Term	1960.0005154799999	Low
+723	10.6	0.9	45	37	Term	Term	2637.000693531	Normal
+724	23.6	2	NA	36	Preterm	Preterm	3385.000890255	Normal
+725	18.9	1.6	61	39	Term	Term	3940.0010362199996	Normal
+726	17	1.5	55	39	Term	Term	3310.0008705299997	Normal
+727	17.1	1.5	44	36	Preterm	Preterm	1860.00048918	Low
+728	13.8	1.2	NA	31	Preterm	Very Preterm	1310.0003445300001	Very Low
+729	13.6	1.2	NA	34	Preterm	Preterm	1760.00046288	Low
+730	13.3	1.2	44	35	Preterm	Preterm	1730.00045499	Low
+731	15.3	1.3	39	24	Preterm	Extremely Preterm	515.000135445	Extremely Low
+732	13.8	1.2	35	35	Preterm	Preterm	1950.00051285	Low
+733	9.7	0.8	NA	32	Preterm	Preterm	1880.0004944399998	Low
+734	11.8	1	36	37	Term	Term	4270.00112301	High
+735	15.4	1.3	35	39	Term	Term	3185.000837655	Normal
+736	15.3	1.3	NA	25	Preterm	Extremely Preterm	805.0002117150001	Extremely Low
+737	16.4	1.4	NA	34	Preterm	Preterm	2210.00058123	Low
+738	14.4	1.2	69	36	Preterm	Preterm	2660.0006995800004	Normal
+739	12.6	1.1	49	37	Term	Term	2890.00076007	Normal
+740	11.6	1	41	31	Preterm	Very Preterm	1710.00044973	Low
+741	17.9	1.5	48	34	Preterm	Preterm	1570.00041291	Low
+742	28.7	2.4	80	27	Preterm	Extremely Preterm	740.00019462	Extremely Low
+743	44	3.7	NA	25	Preterm	Extremely Preterm	720.0001893599999	Extremely Low
+744	15.3	1.3	NA	37	Term	Term	2935.000771905	Normal
+745	20.2	1.7	42	25	Preterm	Extremely Preterm	1130.0002971899999	Very Low
+746	43.6	3.6	66	35	Preterm	Preterm	2665.000700895	Normal
+747	28	2.4	27	29	Preterm	Very Preterm	2950.00077585	Normal
+748	14.7	1.3	60	24	Preterm	Extremely Preterm	680.0001788400001	Extremely Low
+749	19.5	1.7	47	37	Term	Term	3120.00082056	Normal
+750	10.6	0.9	32	37	Term	Term	2460.00064698	Low
+751	18.4	1.6	50	38	Term	Term	3150.00082845	Normal
+752	15.9	1.4	49	23	Preterm	Extremely Preterm	580.0001525399999	Extremely Low
+753	17.5	1.5	NA	23	Preterm	Extremely Preterm	590.00015517	Extremely Low
+754	15.6	1.3	51	39	Term	Term	3640.0009573200005	Normal
+755	13.4	1.2	57	23	Preterm	Extremely Preterm	760.00019988	Extremely Low
+756	17.5	1.5	73	34	Preterm	Preterm	1935.0005089049998	Low
+757	15.3	1.3	41	34	Preterm	Preterm	1590.00041817	Low
+758	12.9	1.1	NA	29	Preterm	Very Preterm	960.0002524799999	Extremely Low
+759	30.3	2.6	72	35	Preterm	Preterm	2089.92514	Low
+760	30.5	2.6	NA	37	Term	Term	3020.072235	Normal
+761	12.3	1.1	88	39	Term	Term	3200.0008416	Normal
+762	13.5	1.2	36	33	Preterm	Preterm	2425.000637775	Low
+763	12.4	1.1	43	39	Term	Term	4320.001136160001	High
+764	16.9	1.4	41	38	Term	Term	2980.0007837400003	Normal
+765	10.5	0.9	29	37	Term	Term	3249.98668	Normal
+766	12.2	1.1	39	34	Preterm	Preterm	1370.0003603100001	Very Low
+767	22.1	1.9	53	30	Preterm	Very Preterm	1055.000277465	Very Low
+768	19.5	1.7	60	37	Term	Term	3220.0008468600004	Normal
+769	26.5	2.2	58	35	Preterm	Preterm	2540.00066802	Normal
+770	14	1.2	NA	30	Preterm	Very Preterm	1590.00041817	Low
+771	62.2	5.1	58	37	Term	Term	3150.00082845	Normal
+772	20.2	1.7	NA	37	Term	Term	1810.00047603	Low
+773	11.9	1	40	39	Term	Term	2840.05291	Normal
+774	11.8	1	28	34	Preterm	Preterm	2420.00063646	Low
+775	14.4	1.2	49	37	Term	Term	2930.0007705900002	Normal
+776	13.7	1.2	NA	35	Preterm	Preterm	2240.00058912	Low
+777	12.5	1.1	NA	32	Preterm	Preterm	1499.9720449999998	Very Low
+778	23.6	2	61	37	Term	Term	3365.08565	Normal
+779	32.9	2.8	NA	36	Preterm	Preterm	4145.001090135	High
+780	23.8	2	NA	24	Preterm	Extremely Preterm	860.12383	Extremely Low
+781	17.6	1.5	48	36	Preterm	Preterm	2650.11126	Normal
+782	13.9	1.2	50	36	Preterm	Preterm	2455.0667000000003	Low
+783	16.1	1.4	43	32	Preterm	Preterm	1710.0418399999999	Low
+784	11.7	1	NA	39	Term	Term	3739.9585727706376	Normal
+785	13	1.1	30	39	Term	Term	3889.9569112507434	Normal
+786	18	1.5	50	38	Term	Term	4138.954153127718	High
+787	12.7	1.1	47	29	Preterm	Very Preterm	1600.04578	Low
+788	16.8	1.4	33	39	Term	Term	2994.84118	Normal
+789	12.3	1.1	42	40	Term	Term	3479.901125	Normal
+790	16.5	1.4	43	39	Term	Term	4364.9725149999995	High
+791	15.3	1.3	42	24	Preterm	Extremely Preterm	570.108445	Extremely Low
+792	20.2	1.7	76	24	Preterm	Extremely Preterm	589.953095	Extremely Low
+793	13.1	1.1	NA	35	Preterm	Preterm	2939.84315	Normal
+794	12.8	1.1	39	38	Term	Term	3968.956036183599	Normal
+795	22.6	1.9	NA	24	Preterm	Extremely Preterm	690.02683	Extremely Low
+796	15.3	1.3	40	42	Term	Term	3610.02533	Normal
+797	18.4	1.6	66	39	Term	Term	4069.9549174268705	High
+798	28.4	2.4	72	23	Preterm	Extremely Preterm	559.902625	Extremely Low
+799	16.8	1.4	NA	23	Preterm	Extremely Preterm	640.13171	Extremely Low
+800	22.6	1.9	NA	25	Preterm	Extremely Preterm	659.97636	Extremely Low
+801	13	1.1	36	29	Preterm	Very Preterm	999.8868650000001	Extremely Low
+802	14.4	1.2	44	33	Preterm	Preterm	2811.9688520403824	Normal
+803	10.4	0.9	38	34	Preterm	Preterm	1630.09625	Low
+804	11.1	1	NA	37	Term	Term	2829.8470899999998	Normal
+805	14.9	1.3	NA	37	Term	Term	3649.998125	Normal
+806	12.2	1.1	38	37	Term	Term	3219.9362100000003	Normal
+807	14.6	1.3	NA	33	Preterm	Preterm	1970.0067549999999	Low
+808	13	1.1	NA	37	Term	Term	2849.96843112201	Normal
+809	11.4	1	49	32	Preterm	Preterm	1869.9792863853188	Low
+810	17.1	1.5	154	25	Preterm	Extremely Preterm	549.9802999999999	Extremely Low
+811	11.9	1	28	37	Term	Term	3639.959680450567	Normal
+812	31.6	2.7	28	28	Preterm	Very Preterm	2250.099815	Low
+813	11.7	1	37	37	Term	Term	2609.85497	Normal
+814	37	3.1	98	34	Preterm	Preterm	2739.9696495699322	Normal
+815	13.5	1.2	37	37	Term	Term	3599.81951	Normal
+816	43.6	3.6	145	28	Preterm	Very Preterm	839.995685	Extremely Low
+817	17.8	1.5	40	27	Preterm	Extremely Preterm	514.9942954483632	Extremely Low
+818	16.5	1.4	42	37	Term	Term	2927.9675671316645	Normal
+819	17.2	1.5	NA	26	Preterm	Extremely Preterm	629.9930216164444	Extremely Low
+820	12	1	46	36	Preterm	Preterm	2950.04897	Normal
+821	15.9	1.4	NA	39	Term	Term	3574.8719499999997	Normal
+822	19.5	1.7	NA	31	Preterm	Very Preterm	2480.01426	Low
+823	38.3	3.2	NA	32	Preterm	Preterm	1899.9834899999998	Low
+824	25.1	2.1	67	36	Preterm	Preterm	3090.0954999999994	Normal
+825	32	2.7	114	36	Preterm	Preterm	2939.9674342100734	Normal
+826	13	1.1	139	38	Term	Term	3599.81951	Normal
+827	10.8	0.9	NA	31	Preterm	Very Preterm	1300.10807	Very Low
+828	22.1	1.9	72	39	Term	Term	3210.013885	Normal
+829	48.4	4.1	55	36	Preterm	Preterm	3284.856565	Normal
+830	15.7	1.4	35	26	Preterm	Extremely Preterm	599.8754200000001	Extremely Low
+831	15.9	1.4	68	38	Term	Term	3889.834895	Normal
+832	11.7	1	NA	24	Preterm	Extremely Preterm	680.104505	Extremely Low
+833	56.7	4.7	161	39	Term	Term	3279.963668098313	Normal
+834	16.7	1.4	29	36	Preterm	Preterm	3029.9664372981365	Normal
+835	33.4	2.8	NA	31	Preterm	Very Preterm	1689.9812802091917	Low
+836	18.7	1.6	NA	24	Preterm	Extremely Preterm	625.106475	Extremely Low
+837	42	3.5	NA	27	Preterm	Extremely Preterm	989.96454	Extremely Low
+838	21.7	1.8	NA	39	Term	Term	2789.969095729967	Normal
+839	14.3	1.2	41	35	Preterm	Preterm	1899.9834899999998	Low
+840	34	2.9	NA	24	Preterm	Extremely Preterm	769.991470864543	Extremely Low
+841	25.5	2.2	76	37	Term	Term	2529.9093799999996	Normal
+842	31.2	2.6	48	36	Preterm	Preterm	3930.0911849999998	Normal
+843	14.9	1.3	25	33	Preterm	Preterm	1439.871105	Very Low
+844	13.2	1.1	36	37	Term	Term	2689.970203409897	Normal
+845	13.4	1.2	NA	39	Term	Term	3729.9586835386303	Normal
+846	12.3	1.1	39	29	Preterm	Very Preterm	949.9917449999999	Extremely Low
+847	21.4	1.8	80	30	Preterm	Very Preterm	699.949155	Extremely Low
+848	NA	NA	NA	26	Preterm	Extremely Preterm	819.8675400000001	Extremely Low
+849	22.4	1.9	89	25	Preterm	Extremely Preterm	659.97636	Extremely Low
+850	24.1	2	NA	25	Preterm	Extremely Preterm	959.9140699999999	Extremely Low
+851	17.8	1.5	NA	37	Term	Term	2779.95197	Normal
+852	14	1.2	40	23	Preterm	Extremely Preterm	779.99136009655	Extremely Low
+853	28.3	2.4	45	39	Term	Term	2959.971295	Normal
+854	15.1	1.3	48	39	Term	Term	3249.9640004022917	Normal
+855	18.4	1.6	47	37	Term	Term	3394.852625	Normal
+856	17.4	1.5	66	37	Term	Term	2690.084055	Normal
+857	11.4	1	39	34	Preterm	Preterm	2789.8742949999996	Normal
+858	18	1.5	59	38	Term	Term	2891.967965896439	Normal
+859	16.6	1.4	44	38	Term	Term	3494.92636	Normal
+860	14.4	1.2	NA	25	Preterm	Extremely Preterm	1029.9885908967265	Very Low
+861	14.9	1.3	38	38	Term	Term	4199.978425	High
+862	37.8	3.2	42	28	Preterm	Very Preterm	989.96454	Extremely Low
+863	11.3	1	49	27	Preterm	Extremely Preterm	723.9919803973105	Extremely Low
+864	20.2	1.7	NA	30	Preterm	Very Preterm	1499.9720449999998	Very Low
+865	22.1	1.9	46	36	Preterm	Preterm	2499.85891	Low
+866	15.7	1.4	NA	41	Term	Term	3559.9605665945105	Normal
+867	19	1.6	52	32	Preterm	Preterm	2400.0686699999997	Low
+868	21.2	1.8	65	27	Preterm	Extremely Preterm	879.96848	Extremely Low
+869	11.6	1	49	29	Preterm	Very Preterm	1080.11595	Very Low
+870	12.6	1.1	45	26	Preterm	Extremely Preterm	954.9894216566735	Extremely Low
+871	11.1	1	40	37	Term	Term	2669.95591	Normal
+872	28.5	2.4	NA	23	Preterm	Extremely Preterm	589.953095	Extremely Low
+873	11.9	1	36	35	Preterm	Preterm	2089.976849489474	Low
+874	19.3	1.6	42	40	Term	Term	3559.8467149999997	Normal
+875	12	1	46	26	Preterm	Extremely Preterm	980.0422149999999	Extremely Low
+876	19.6	1.7	61	40	Term	Term	3179.9634149999997	Normal
+877	29.5	2.5	45	NA	NA	NA	NA	NA
+878	32.7	2.8	150	26	Preterm	Extremely Preterm	1179.90619	Very Low
+879	15.3	1.3	48	37	Term	Term	2095.02805	Low
+880	25	2.1	100	22	Preterm	Extremely Preterm	470.03470999999996	Extremely Low
+881	13.8	1.2	30	40	Term	Term	4329.819135	High
+882	30	2.5	75	23	Preterm	Extremely Preterm	720.0772999999998	Extremely Low
+883	34.4	2.9	76	27	Preterm	Extremely Preterm	1200.0343349999998	Very Low
+884	10.7	0.9	40	32	Preterm	Preterm	1879.855345	Low
+885	13.7	1.2	61	36	Preterm	Preterm	2409.9733049137	Low
+886	18.9	1.6	37	39	Term	Term	3002.9667363717176	Normal
+887	20.1	1.7	NA	24	Preterm	Extremely Preterm	679.9924677764795	Extremely Low
+888	18.1	1.6	54	36	Preterm	Preterm	2799.9689849619745	Normal
+889	18.9	1.6	63	35	Preterm	Preterm	2929.967544978066	Normal
+890	36.4	3.1	NA	39	Term	Term	3741.958550617039	Normal
+891	15.8	1.4	52	34	Preterm	Preterm	1700.1195149999999	Low
+892	9.7	0.8	33	25	Preterm	Extremely Preterm	929.8635999999999	Extremely Low
+893	16.9	1.4	37	39	Term	Term	4529.966605	High
+894	11.6	1	40	41	Term	Term	3614.844745	Normal
+895	12.8	1.1	38	39	Term	Term	3259.909005	Normal
+896	14.9	1.3	44	39	Term	Term	3834.836865	Normal
+897	20.3	1.7	NA	35	Preterm	Preterm	2009.97955	Low
+898	15.6	1.3	48	39	Term	Term	2999.9440899999995	Normal
+899	18.3	1.6	43	39	Term	Term	2799.9689849619745	Normal
+900	12.8	1.1	NA	34	Preterm	Preterm	1649.9409	Low
+901	13.2	1.1	28	36	Preterm	Preterm	3860.06792	Normal
+902	16.2	1.4	34	39	Term	Term	3109.94015	Normal
+903	15.8	1.4	41	37	Term	Term	4010.0367749999996	High
+904	12.6	1.1	NA	37	Term	Term	3719.9587943066235	Normal
+905	25.9	2.2	48	39	Term	Term	3109.9655511541932	Normal
+906	16.3	1.4	56	23	Preterm	Extremely Preterm	664.9926339284689	Extremely Low
+907	23	2	46	39	Term	Term	3231.9641997846793	Normal
+908	22.8	1.9	NA	38	Term	Term	3069.967355	Normal
+909	12	1	44	38	Term	Term	3519.9610096664824	Normal
+910	13.1	1.1	NA	30	Preterm	Very Preterm	1520.1001899999999	Low
+911	12.1	1	35	39	Term	Term	3240.064355	Normal
+912	12.6	1.1	40	39	Term	Term	2709.969981873911	Normal
+913	14.6	1.3	98	37	Term	Term	3117.965462539799	Normal
+914	16.4	1.4	42	37	Term	Term	2580.087995	Normal
+915	25.9	2.2	NA	22	Preterm	Extremely Preterm	510.0075049999999	Extremely Low
+916	24.4	2.1	47	35	Preterm	Preterm	2009.9777356334175	Low
+917	22.1	1.9	NA	37	Term	Term	2639.90544	Normal
+918	15.4	1.3	45	26	Preterm	Extremely Preterm	690.02683	Extremely Low
+919	16.4	1.4	NA	26	Preterm	Extremely Preterm	829.9908062565853	Extremely Low
+920	16.5	1.4	NA	28	Preterm	Very Preterm	1080.11595	Very Low
+921	12.7	1.1	45	24	Preterm	Extremely Preterm	769.9724199999999	Extremely Low
+922	10.7	0.9	33	25	Preterm	Extremely Preterm	551.9938856067893	Extremely Low
+923	36	3	95	40	Term	Term	3710.099065	Normal
+924	34.8	2.9	38	35	Preterm	Preterm	2367.97377013927	Low
+925	17.9	1.5	49	39	Term	Term	3739.8660399999994	Normal
+926	13.9	1.2	37	26	Preterm	Extremely Preterm	813.990983485374	Extremely Low
+927	12.8	1.1	40	30	Preterm	Very Preterm	680.104505	Extremely Low
+928	16.8	1.4	44	35	Preterm	Preterm	2159.9484049999996	Low
+929	13.5	1.2	NA	32	Preterm	Preterm	2880.025705	Normal
+930	59.2	4.9	50	30	Preterm	Very Preterm	1164.880955	Very Low
+931	22.9	2	72	22	Preterm	Extremely Preterm	479.95703499999996	Extremely Low
+932	50.3	4.2	NA	22	Preterm	Extremely Preterm	549.9802999999999	Extremely Low
+933	14.2	1.2	51	39	Term	Term	4329.819135	High
+934	15	1.3	NA	26	Preterm	Extremely Preterm	929.8635999999999	Extremely Low
+935	15.8	1.4	38	39	Term	Term	3599.81951	Normal
+936	12.5	1.1	27	23	Preterm	Extremely Preterm	679.9924677764795	Extremely Low
+937	19.3	1.6	NA	23	Preterm	Extremely Preterm	659.97636	Extremely Low
+938	35.1	3	NA	38	Term	Term	3419.962117346412	Normal
+939	12	1	35	38	Term	Term	3469.9788	Normal
+940	42.5	3.6	NA	23	Preterm	Extremely Preterm	549.9802999999999	Extremely Low
+941	15.6	1.3	NA	39	Term	Term	3530.0797399999997	Normal
+942	11.2	1	38	32	Preterm	Preterm	1805.012665	Low
+943	14	1.2	NA	34	Preterm	Preterm	2679.878235	Normal
+944	19.1	1.6	54	37	Term	Term	2629.983115	Normal
+945	17.7	1.5	48	39	Term	Term	3159.8352699999996	Normal
+946	35.4	3	50	37	Term	Term	2594.829735	Normal
+947	19.9	1.7	NA	36	Preterm	Preterm	2469.972640305742	Low
+948	12.5	1.1	29	23	Preterm	Extremely Preterm	409.99545851228913	Extremely Low
+949	14.2	1.2	35	38	Term	Term	3689.9709199999998	Normal
+950	14.1	1.2	NA	27	Preterm	Extremely Preterm	1380.05366	Very Low
+951	12.5	1.1	33	39	Term	Term	3519.87392	Normal
+952	15.5	1.3	44	40	Term	Term	2849.96843112201	Normal
+953	13.9	1.2	49	39	Term	Term	3439.92833	Normal
+954	19.9	1.7	NA	23	Preterm	Extremely Preterm	640.1317099999999	Extremely Low
+955	20.5	1.8	62	31	Preterm	Very Preterm	860.12383	Extremely Low
+956	20.3	1.7	79	29	Preterm	Very Preterm	1399.89831	Very Low
+957	12.4	1.1	30	39	Term	Term	3799.95790816268	Normal
+958	14.7	1.3	46	29	Preterm	Very Preterm	989.96454	Extremely Low
+959	12.8	1.1	36	29	Preterm	Very Preterm	1459.9992499999998	Very Low
+960	14.2	1.25	125	26	Preterm	Extremely Preterm	839.9906954885923	Extremely Low
+961	36.3	3	66	36	Preterm	Preterm	2909.967766514052	Normal
+962	22.5	1.9	47	28	Preterm	Very Preterm	1009.9888124327123	Very Low
+963	27.2	2.3	NA	37	Term	Term	3900.0407149999996	Normal
+964	28.5	2.4	104	32	Preterm	Preterm	1779.9802832972553	Low
+965	11	1	37	40	Term	Term	3604.9600681385423	Normal
+966	13.7	1.2	40	39	Term	Term	3140.965207773415	Normal
+967	23.4	2	74	39	Term	Term	4439.815195	High
+968	25.4	2.2	70	34	Preterm	Preterm	2489.972418769756	Low
+969	26.7	2.3	NA	26	Preterm	Extremely Preterm	984.86163	Extremely Low
+970	13.3	1.2	NA	35	Preterm	Preterm	2649.970646481869	Normal
+971	12.1	1	46	39	Term	Term	3029.9664372981365	Normal
+972	18.3	1.6	52	37	Term	Term	3699.8932449999998	Normal
+973	16	1.4	66	35	Preterm	Preterm	1829.9797294572907	Low
+974	15	1.3	NA	39	Term	Term	3344.957505	Normal
+975	12.2	1.1	NA	37	Term	Term	3039.9663265301438	Normal
+976	27.5	2.3	31	27	Preterm	Extremely Preterm	589.953095	Extremely Low
+977	28.2	2.4	NA	35	Preterm	Preterm	2569.882175	Normal
+978	24.3	2.1	NA	27	Preterm	Extremely Preterm	999.9889232007052	Extremely Low
+979	27.9	2.4	110	27	Preterm	Extremely Preterm	1009.9888124327123	Very Low
+980	22	1.9	111	24	Preterm	Extremely Preterm	990.9890228918989	Extremely Low
+981	12.7	1.1	59	36	Preterm	Preterm	2089.92514	Low
+982	16.3	1.4	NA	39	Term	Term	3589.897185	Normal
+983	17.4	1.5	NA	36	Preterm	Preterm	2929.967544978066	Normal
+984	15.6	1.3	26	39	Term	Term	4329.819135	High
+985	12.6	1.1	NA	25	Preterm	Extremely Preterm	669.9925785444724	Extremely Low
+986	11.8	1	32	37	Term	Term	2895.05094	Normal
+987	17	1.5	33	33	Preterm	Preterm	1359.984935552959	Very Low
+988	12.6	1.1	NA	33	Preterm	Preterm	1960.0844299999999	Low
+989	16.9	1.4	90	35	Preterm	Preterm	2649.970646481869	Normal
+990	12.1	1	44	35	Preterm	Preterm	2529.9719756977843	Normal
+991	13.3	1.2	NA	39	Term	Term	3274.9342399999996	Normal
+992	11.9	1.04	NA	30	Preterm	Very Preterm	1672.9814685147799	Low
+993	11.6	1.02	38	34	Preterm	Preterm	2684.9811449999997	Normal
+994	10.5	0.92	36	31	Preterm	Very Preterm	1350.00319	Very Low
+995	16.2	1.4	38	36	Preterm	Preterm	3178.964786855042	Normal
+996	20.4	1.79	74	24	Preterm	Extremely Preterm	729.9919139365147	Extremely Low
+997	15.6	1.37	41	38	Term	Term	2629.983115	Normal
+998	15.2	1.33	32	39	Term	Term	3350.060415	Normal
+999	10.8	0.95	30	38	Term	Term	2389.973526449686	Low
+1000	15.2	1.33	49	35	Preterm	Preterm	2590.01032	Normal
+1001	11.6	1.02	30	37	Term	Term	3809.957797394687	Normal
+1002	36.4	3.19	NA	24	Preterm	Extremely Preterm	669.898685	Extremely Low
+1003	27.2	2.39	34	40	Term	Term	2844.872325	Normal
+1004	13.7	1.2	NA	27	Preterm	Extremely Preterm	739.92195	Extremely Low
+1005	13.1	1.15	NA	41	Term	Term	4309.952258995039	High
+1006	12.1	1.06	NA	30	Preterm	Very Preterm	933.9896542694587	Extremely Low
+1007	12.3	1.08	NA	34	Preterm	Preterm	2679.878235	Normal
+1008	15	1.32	42	39	Term	Term	3069.967355	Normal
+1009	11.7	1.03	33	39	Term	Term	3628.9598022953587	Normal
+1010	16	1.4	NA	27	Preterm	Extremely Preterm	650.054035	Extremely Low
+1011	13.4	1.18	46	38	Term	Term	2429.8356449999997	Low
+1012	26.7	2.34	81	32	Preterm	Preterm	1759.93696	Low
+1013	32.3	2.83	97	24	Preterm	Extremely Preterm	729.9996249999999	Extremely Low
+1014	11.3	0.99	NA	24	Preterm	Extremely Preterm	1009.9888124327123	Very Low
+1015	15.5	1.36	NA	37	Term	Term	2339.9740802896504	Low
+1016	11.6	1.02	33	36	Preterm	Preterm	3619.947655	Normal
+1017	27.1	2.38	NA	26	Preterm	Extremely Preterm	1099.987815520776	Very Low
+1018	14.7	1.29	38	37	Term	Term	2969.89362	Normal
+1019	12.7	1.11	28	24	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+1020	12.9	1.13	48	39	Term	Term	3219.93621	Normal
+1021	12.3	1.08	NA	38	Term	Term	3189.9646650102495	Normal
+1022	12.2	1.07	49	22	Preterm	Extremely Preterm	709.9921354725006	Extremely Low
+1023	12.2	1.07	39	24	Preterm	Extremely Preterm	849.9905847205994	Extremely Low
+1024	16.1	1.41	51	36	Preterm	Preterm	4114.929925	High
+1025	13.8	1.21	42	25	Preterm	Extremely Preterm	800.02289	Extremely Low
+1026	15.6	1.37	40	38	Term	Term	3420.0836799999997	Normal
+1027	14.7	1.29	NA	34	Preterm	Preterm	2339.9677300000003	Low
+1028	13.6	1.19	46	26	Preterm	Extremely Preterm	760.0500949999999	Extremely Low
+1029	13.6	1.19	37	37	Term	Term	3540.002065	Normal
+1030	15.9	1.39	NA	37	Term	Term	2469.972640305742	Low
+1031	17.1	1.5	44	38	Term	Term	2969.89362	Normal
+1032	19.5	1.71	101	28	Preterm	Very Preterm	1050.06548	Very Low
+1033	20.4	1.79	35	40	Term	Term	3430.0060049999997	Normal
+1034	15.8	1.39	36	39	Term	Term	3673.959303839391	Normal
+1035	NA	NA	52	37	Term	Term	3229.8585350000003	Normal
+1036	17.8	1.56	NA	23	Preterm	Extremely Preterm	679.9924677764795	Extremely Low
+1037	14.5	1.27	NA	32	Preterm	Preterm	2129.897935	Low
+1038	17.6	1.54	53	29	Preterm	Very Preterm	849.9905847205994	Extremely Low
+1039	36	3.16	NA	26	Preterm	Extremely Preterm	1090.038275	Very Low
+1040	17.9	1.57	NA	29	Preterm	Very Preterm	1750.0146349999998	Low
+1041	11.9	1.04	37	37	Term	Term	2739.9696495699322	Normal
+1042	12.4	1.09	39	34	Preterm	Preterm	2379.940525	Low
+1043	17.3	1.52	NA	30	Preterm	Very Preterm	1459.9992499999998	Very Low
+1044	13.9	1.22	NA	40	Term	Term	3794.9579635466757	Normal
+1045	24.3	2.13	69	32	Preterm	Preterm	1679.99137	Low
+1046	20.2	1.77	50	39	Term	Term	3219.93621	Normal
+1047	16.3	1.43	NA	40	Term	Term	4079.9548066588773	High
+1048	20	1.75	NA	39	Term	Term	2650.11126	Normal
+1049	11.2	0.98	38	39	Term	Term	3459.96167427444	Normal
+1050	17.1	1.5	87	37	Term	Term	4639.948603651273	High
+1051	11.3	0.99	23	38	Term	Term	2880.025705	Normal
+1052	12.6	1.11	28	38	Term	Term	3629.8699799999995	Normal
+1053	24.1	2.11	246	25	Preterm	Extremely Preterm	987.9890561222968	Extremely Low
+1054	26.4	2.32	121	28	Preterm	Very Preterm	870.046155	Extremely Low
+1055	16.9	1.48	45	35	Preterm	Preterm	2459.886115	Low
+1056	26.5	2.32	NA	25	Preterm	Extremely Preterm	934.9665099999999	Extremely Low
+1057	21.4	1.88	34	37	Term	Term	2849.96843112201	Normal
+1058	102	8.9	NA	37	Term	Term	2559.9716433938056	Normal
+1059	19.8	1.74	156	38	Term	Term	3367.962693339975	Normal
+1060	24.9	2.18	58	37	Term	Term	2400.0686699999997	Low
+1061	11.6	1.02	51	26	Preterm	Extremely Preterm	739.92195	Extremely Low
+1062	13.1	1.15	34	35	Preterm	Preterm	2919.9984999999997	Normal
+1063	15.4	1.35	78	37	Term	Term	3539.9607881304964	Normal
+1064	22	1.93	NA	24	Preterm	Extremely Preterm	839.995685	Extremely Low
+1065	12.4	1.09	NA	39	Term	Term	3625.050565	Normal
+1066	24.1	2.11	113	24	Preterm	Extremely Preterm	800.02289	Extremely Low
+1067	29	2.54	27	24	Preterm	Extremely Preterm	779.8947450000001	Extremely Low
+1068	14.1	1.24	36	38	Term	Term	3210.013885	Normal
+1069	16.4	1.44	52	38	Term	Term	2919.9984999999997	Normal
+1070	19.2	1.68	50	32	Preterm	Preterm	2179.9758525775374	Low
+1071	13.9	1.22	46	34	Preterm	Preterm	2119.97561	Low
+1072	17.7	1.55	49	39	Term	Term	3649.998125	Normal
+1073	9.6	0.84	32	34	Preterm	Preterm	2030.107695	Low
+1074	14	1.23	28	38	Term	Term	3665.0233599999997	Normal
+1075	22.5	1.97	40	39	Term	Term	2590.01032	Normal
+1076	17.2	1.51	40	38	Term	Term	2963.08974	Normal
+1077	17.2	1.51	70	40	Term	Term	3575.9603893657218	Normal
+1078	15.8	1.39	54	36	Preterm	Preterm	2819.9247649999998	Normal
+1079	26.4	2.32	93	24	Preterm	Extremely Preterm	639.9929108484514	Extremely Low
+1080	18.7	1.64	NA	37	Term	Term	3609.960012754546	Normal
+1081	21.9	1.92	128	39	Term	Term	3149.912945	Normal
+1082	22.9	2.01	115	31	Preterm	Very Preterm	1240.00713	Very Low
+1083	31.5	2.76	38	32	Preterm	Preterm	1999.9778464014105	Low
+1084	11.8	1.04	37	39	Term	Term	3049.966215762151	Normal
+1085	14.4	1.26	39	37	Term	Term	2910.076175	Normal
+1086	19.4	1.7	43	37	Term	Term	2169.87073	Low
+1087	30.2	2.65	NA	39	Term	Term	3640.0758	Normal
+1088	13.8	1.21	NA	24	Preterm	Extremely Preterm	839.995685	Extremely Low
+1089	15.1	1.32	29	37	Term	Term	2844.872325	Normal
+1090	14.3	1.25	100	22	Preterm	Extremely Preterm	500.08518	Extremely Low
+1091	17	1.49	94	22	Preterm	Extremely Preterm	409.99545851228913	Extremely Low
+1092	16.3	1.43	51	39	Term	Term	4049.9551389628564	High
+1093	13.6	1.19	NA	36	Preterm	Preterm	2510.06473	Normal
+1094	12.1	1.06	42	30	Preterm	Very Preterm	1789.98743	Low
+1095	18.1	1.59	48	39	Term	Term	4160.005630000001	High
+1096	14.2	1.25	NA	37	Term	Term	3170.0410899999997	Normal
+1097	11.7	1.03	62	28	Preterm	Very Preterm	1109.882925	Very Low
+1098	27.8	2.44	51	36	Preterm	Preterm	1560.072985	Low
+1099	16	1.4	79	24	Preterm	Extremely Preterm	680.1045049999999	Extremely Low
+1100	16.3	1.43	58	29	Preterm	Very Preterm	1409.9843817129943	Very Low
+1101	12.9	1.13	41	39	Term	Term	3469.9788	Normal
+1102	18.6	1.63	NA	30	Preterm	Very Preterm	879.96848	Extremely Low
+1103	17.1	1.5	37	38	Term	Term	3130.0682949999996	Normal
+1104	17.2	1.51	NA	25	Preterm	Extremely Preterm	729.9996249999999	Extremely Low
+1105	19.9	1.75	68	32	Preterm	Preterm	1420.026455	Very Low
+1106	83.6	7.33	NA	31	Preterm	Very Preterm	1810.115575	Low
+1107	22.5	1.97	35	39	Term	Term	2844.872325	Normal
+1108	20	1.75	45	24	Preterm	Extremely Preterm	790.100565	Extremely Low
+1109	19.6	1.72	NA	24	Preterm	Extremely Preterm	779.8947450000001	Extremely Low
+1110	21.9	1.92	44	38	Term	Term	2367.97377013927	Low
+1111	18.3	1.61	35	40	Term	Term	3599.9601235225387	Normal
+1112	21.4	1.88	NA	29	Preterm	Very Preterm	1039.9884801287335	Very Low
+1113	14.9	1.31	36	40	Term	Term	2850.96842004521	Normal
+1114	12.2	1.07	NA	30	Preterm	Very Preterm	1649.9409	Low
+1115	16.7	1.46	NA	39	Term	Term	3139.99062	Normal
+1116	17.2	1.51	32	38	Term	Term	3799.9669799999997	Normal
+1117	13.5	1.18	NA	27	Preterm	Extremely Preterm	802.85784	Extremely Low
+1118	11.4	1	NA	37	Term	Term	2694.9701480259005	Normal
+1119	13.9	1.22	35	29	Preterm	Very Preterm	870.046155	Extremely Low
+1120	23.5	2.06	33	40	Term	Term	3240.064355	Normal
+1121	15.2	1.33	NA	27	Preterm	Extremely Preterm	1149.85572	Very Low
+1122	10.5	0.92	43	35	Preterm	Preterm	1849.9795079213047	Low
+1123	11.9	1.04	38	28	Preterm	Very Preterm	1199.9867078408463	Very Low
+1124	15.9	1.39	53	38	Term	Term	2819.9247649999998	Normal
+1125	20.1	1.76	NA	40	Term	Term	3219.93621	Normal
+1126	11.4	1	NA	32	Preterm	Preterm	1249.9861540008817	Very Low
+1127	12.6	1.11	25	37	Term	Term	2914.9677111300557	Normal
+1128	17.3	1.52	NA	39	Term	Term	3031.966415144538	Normal
+1129	13.5	1.18	46	36	Preterm	Preterm	5339.91182	High
+1130	14.2	1.25	62	39	Term	Term	3720.02139	Normal
+1131	19.4	1.7	49	40	Term	Term	3244.9640557862886	Normal
