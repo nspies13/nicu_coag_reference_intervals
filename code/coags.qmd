@@ -405,9 +405,12 @@ first_coags <-
     slice_head(n = 1) |> 
     ungroup()
 
+first_coags_with_corrected_age <- first_coags |> mutate(age_at_draw = as.numeric(difftime(Procedure, DOB, units = "days"))/24, age_at_draw_bin = cut(age_at_draw, c(0, 1, 7, 14)))
+first_coags_with_corrected_age |> count(age_at_draw_bin) |> mutate(prop = n/sum(n))
 ```
 
 ## Start Here from Anonymized Inputs
+
 ```{r}
 ### Load Anonymized Coag Data
 first_coags <- read_delim("../data/first_coags_anonymized.tsv", delim = "\t")
@@ -507,7 +510,7 @@ gg_rolling_aPTT <-
     scale_x_continuous(limits = c(24, 41), breaks = seq(24, 40, by = 4)) +
     scale_y_continuous(limits = c(20, 150), breaks = seq(20, 140, by = 20)) +
     labs(title = "aPTT", x = "Gestational Age (weeks)", y = "aPTT (seconds)") +
-    theme(legend.position = "none")
+    theme(legend.position = "none", plot.background = element_blank(), panel.background = element_blank())
 
 gg_rolling_PT <- 
   ggplot() +
@@ -517,7 +520,7 @@ gg_rolling_PT <-
     scale_x_continuous(limits = c(24, 41), breaks = seq(24, 40, by = 4)) +
     scale_y_continuous(limits = c(10, 50), breaks = seq(10, 50, by = 10)) +
     labs(title = "PT", x = "Gestational Age (weeks)", y = "PT (seconds)") +
-    theme(legend.position = "none")
+    theme(legend.position = "none", plot.background = element_blank(), panel.background = element_blank())
 
 gg_rolling_INR <- 
   ggplot() +
@@ -527,11 +530,11 @@ gg_rolling_INR <-
     scale_x_continuous(limits = c(24, 41), breaks = seq(24, 40, by = 4)) +
     scale_y_continuous(limits = c(0.7, 5), breaks = seq(0.5, 5, by = 0.5)) +
     labs(title = "INR", x = "Gestational Age (weeks)", y = "INR (Ratio)") +
-    theme(legend.position = "none")
+    theme(legend.position = "none", plot.background = element_blank(), panel.background = element_blank())
 
-gg_fig1 <- ggpubr::ggarrange(gg_rolling_PT, gg_rolling_INR, gg_rolling_aPTT, ncol = 3, nrow = 1)
-ggsave("../figures/figure1_rolling_quantiles_gest_age.png", gg_fig1, width = 9, height = 4)
-ggsave("../figures/figure1_rolling_quantiles_gest_age.svg", gg_fig1, width = 9, height = 4, dpi = 600)
+gg_fig1 <- ggpubr::ggarrange(gg_rolling_PT, gg_rolling_aPTT, ncol = 2, nrow = 1)
+ggsave("../figures/figure1_rolling_quantiles_gest_age.svg", gg_fig1, width = 9, height = 4, bg = NULL)
+ggsave("../figures/figure1_rolling_quantiles_gest_age.png", gg_fig1, width = 9, height = 4, dpi = 600)
 ggsave("../figures/figure1_rolling_quantiles_gest_age.pdf", gg_fig1, width = 9, height = 4)
 
 
@@ -666,31 +669,88 @@ dev.off()
 
 ```{r}
 
+andrew_et_al_1987 <- tibble(
+  Test = c("PT", "aPTT"),
+  gest_age_term = c("Term", "Term"),
+  lower_limit = c(10, 25),
+  upper_limit = c(16, 60),
+  class = "External Direct Intervals",
+  source = "Andrew et al., 1987"
+) 
+
+andrew_et_al_1988 <- tibble(
+  Test = c("PT", "aPTT"),
+  gest_age_term = c("Preterm", "Preterm"),
+  lower_limit = c(11, 28),
+  upper_limit = c(16, 79),
+  class = "External Direct Intervals",
+  source = "Andrew et al., 1988"
+) 
+
+neary_et_al_2013 <- tibble(
+  Test = c("PT", "aPTT"),
+  gest_age_term = c("Preterm", "Preterm"),
+  lower_limit = c(14, 41),
+  upper_limit = c(37, 159),
+  class = "External Direct Intervals",
+  source = "Neary et al., 2013"
+)
+
+neary_et_al_2015 <- tibble(
+  Test = c("PT", "aPTT", "PT", "aPTT"),
+  gest_age_term = c("Preterm", "Preterm", "Term", "Term"),
+  lower_limit = c(11, 47, 13, 47),
+  upper_limit = c(38, 149, 18, 60),
+  class = "External Direct Intervals",
+  source = "Neary et al., 2015"
+)
+
 gg_ri_input <- 
   nested_data |> 
-    select(Test, gest_age_term, lower_limit, upper_limit) |> 
+    transmute(Test, gest_age_term, lower_limit, upper_limit, source = "Indirect Estimate") |> 
+    bind_rows(andrew_et_al_1987) |>
+    bind_rows(andrew_et_al_1988) |>
+    bind_rows(neary_et_al_2013) |>
+    bind_rows(neary_et_al_2015) |>
+    bind_rows(current_ri |> mutate(source = "Current RI", class = "Director Judgment", lower_limit = lower_limit_ri, upper_limit = upper_limit_ri, gest_age_term = "Preterm")) |> 
+    bind_rows(current_ri |> mutate(source = "Current RI", class = "Director Judgment", lower_limit = lower_limit_ri, upper_limit = upper_limit_ri, gest_age_term = "Term")) |> 
     pivot_longer(c("lower_limit", "upper_limit"), names_to = "Limit", values_to = "Value") |> 
-    left_join(current_ri) |> 
-    mutate(times_url = ifelse(Limit == "upper_limit", Value / upper_limit_ri, NA))
+    mutate(source = factor(source, levels = rev(c("Current RI", "Indirect Estimate", "Andrew et al., 1987", "Andrew et al., 1988", "Neary et al., 2013", "Neary et al., 2015"))))
 
-scales <- tibble(Test = rep(c("PT", "INR", "aPTT"), each = 2), gest_age_term = "All", Value = c(10, 30, 0.5, 2.5, 20, 80))
-
-gg_ri_comparison <- 
-  ggplot(gg_ri_input, aes(x = Value, y = gest_age_term)) + 
-    geom_point() +
-    geom_text(aes(label = round(Value, digits = 1)), vjust = -1) +
-    geom_text(data = gg_ri_input |> filter(Limit == "upper_limit"), aes(label = paste0(round(times_url, digits = 1), "x")), vjust = 1.5) +
-    geom_segment(data = nested_data, aes(x = lower_limit, xend = upper_limit, y = gest_age_term, yend = gest_age_term)) +
-    geom_rect(data = current_ri, aes(xmin = lower_limit_ri, xmax = upper_limit_ri, ymin = 0.8, ymax = 3.3), fill = "black", alpha = 0.1, inherit.aes = F) +
-    geom_blank(data = scales) +  
-    scale_y_discrete(expand = c(0, 0)) + 
-    facet_wrap(~ fct_rev(Test), scales = "free_x") + 
+gg_ri_comparison_preterm <-
+  ggplot(gg_ri_input |> filter(Test != "INR" & gest_age_term == "Preterm"), aes(x = Value, y = source, color = source)) + 
+    geom_line(linewidth = 6) +
+    geom_text(aes(label = round(Value)), hjust = 1, nudge_x = -0.5, fontface = "bold") + 
+    geom_text(aes(label = round(Value)), hjust = 0, nudge_x = 0.5, fontface = "bold") + 
+    #geom_rect(data = current_ri, aes(xmin = lower_limit_ri, xmax = upper_limit_ri, ymin = 0.8, ymax = 3.3), fill = "black", alpha = 0.1, inherit.aes = F) +
+    #geom_blank(data = scales, inherit.aes = F) +  
+    scale_y_discrete(expand = c(0.1, 0.1)) + 
+    scale_x_continuous(expand = expansion(mult = c(0.2, 0.2))) +
+    scale_color_manual(values = c("grey80", "grey80", "grey80", "darkred", "black")) +
+    facet_grid(gest_age_term ~ fct_rev(Test), scales = "free") + 
     coord_cartesian(clip = "off") + 
-    xlab("Result") + ylab("") + ggtitle("Indirect Reference Intervals for Coagulation Tests", subtitle = "First Collection Per Patient, All NICU Admissions (2018 - 2023)") +
-    theme()
-ggsave("../figures/figure2_reference_interval_comparisons.pdf", gg_ri_comparison, width = 8.5, height = 5, dpi = 600)
-ggsave("../figures/figure2_reference_interval_comparisons.png", gg_ri_comparison, width = 8.5, height = 5, dpi = 600)
-ggsave("../figures/figure2_reference_interval_comparisons.svg", gg_ri_comparison, width = 8.5, height = 5)
+    xlab("Result") + ylab("") + ggtitle("Comparison of Reference Interval Estimates") +
+    theme(legend.position = "none")
+
+gg_ri_comparison_term <-
+  ggplot(gg_ri_input |> filter(Test != "INR" & gest_age_term == "Term"), aes(x = Value, y = source, color = source)) + 
+    geom_line(linewidth = 6) +
+    geom_text(aes(label = round(Value)), hjust = 1, nudge_x = -0.25, fontface = "bold") + 
+    geom_text(aes(label = round(Value)), hjust = 0, nudge_x = 0.25, fontface = "bold") + 
+    #geom_rect(data = current_ri, aes(xmin = lower_limit_ri, xmax = upper_limit_ri, ymin = 0.8, ymax = 3.3), fill = "black", alpha = 0.1, inherit.aes = F) +
+    #geom_blank(data = scales, inherit.aes = F) +  
+    scale_y_discrete(expand = c(0.1, 0.1)) + 
+    scale_x_continuous(expand = expansion(mult = c(0.2, 0.2))) +
+    scale_color_manual(values = c("grey80", "grey80", "darkred", "black")) +
+    facet_grid(gest_age_term ~ fct_rev(Test), scales = "free") + 
+    coord_cartesian(clip = "off") + 
+    xlab("Result") + ylab("") +
+    theme(legend.position = "none")
+
+gg_ri_comp_combo <- ggpubr::ggarrange(gg_ri_comparison_preterm, gg_ri_comparison_term, ncol = 1, nrow = 2, heights = c(0.55, 0.45))
+ggsave("../figures/figure2_reference_interval_comparisons.pdf", gg_ri_comp_combo, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure2_reference_interval_comparisons.png", gg_ri_comp_combo, width = 8.5, height = 5, dpi = 600)
+ggsave("../figures/figure2_reference_interval_comparisons.svg", gg_ri_comp_combo, width = 8.5, height = 5)
 ```
 
 ## Multivariate Modeling
@@ -782,4 +842,15 @@ adjINR_RI_term <- refineR::findRI(adjusted_inr |> filter(gest_age >= 37) |> pluc
 adjINR_RI_preterm <- refineR::findRI(adjusted_inr |> filter(gest_age < 37) |> pluck("adjINR"), seed = 12345)
 
 plot(adjINR_RI_all, Nhist = 30, showCI = F, showPathol = T, scalePathol = T, showBSModels = F, title = "Adjusted INR", ylab = "All Neonates", xlab = "")
+```
+
+## All vs. First-in-Life vs. First-in-Life-No-Transfusion
+```{r}
+
+ri_first_no_transfusion_inr <- first_coags |> distinct(MRN, Procedure, INR) |> pluck("INR") |> as.numeric() |> refineR::findRI(seed = 12345, model = "modBoxCoxFast")
+ri_first_with_transfusion_inr <- coags_prior_to_transfusion_joined |> filter(is.na(`Order Date & Time`)) |> distinct(MRN, Procedure, INR) |> pluck("INR") |> as.numeric() |> refineR::findRI(seed = 12345, model = "modBoxCoxFast")
+
+getRI(ri_first_no_transfusion_inr)
+getRI(ri_first_with_transfusion_inr)
+
 ```
